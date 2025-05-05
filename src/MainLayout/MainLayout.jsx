@@ -7,11 +7,11 @@ const MainLayout = () => {
         <div>
             <Navbar/>
 
-            <div>
-                <Outlet></Outlet>
+            <div className='container mx-auto px-2'>
+                <Outlet />
             </div>
 
-            Footer
+            
         </div>
     );
 };
