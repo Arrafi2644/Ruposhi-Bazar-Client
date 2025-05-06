@@ -10,9 +10,9 @@ const Navbar = () => {
     return (
         <div className='border-b border-gray-300'>
             {/* nav-1  */}
-            <div className="navbar flex justify-between container mx-auto px-2">
+            <div className="navbar flex justify-between container mx-auto px-2 md:px-4">
                 <div className="navbar-start w-auto md:w-1/3">
-                    <Link to={'/'} className="font-semibold text-xl ">RuposhiBazar</Link>
+                    <Link to={'/'} className="font-semibold text-xl text-yellow-900 ">RuposhiBazar</Link>
                 </div>
 
                 {/* Search bar  */}

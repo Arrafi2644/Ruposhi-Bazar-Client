@@ -1,0 +1,1322 @@
+[
+    {
+        "_id": "1",
+        "model": "hq53",
+        "productName": "headset",
+        "title": "FANTECH HQ53 Flash Lightweight Gaming Headset",
+        "brand": "Fantech",
+        "category": "Electronics",
+        "price": 1180,
+        "discount": 15,
+        "featured": true,
+        "flash_sale": false,
+        "color_family": ["Red", "White"],
+        "warranty": "1 year Brand Warranty",
+        "images": [
+            "https://i.ibb.co.com/21GMpph2/image.png",
+            "https://i.ibb.co.com/gZdvrNHn/image.png",
+            "https://i.ibb.co.com/60gYsZDr/image.png"
+        ],
+        "features": {
+            "lighting_effect": "Accent lighting on each ear cup",
+            "connectivity": "3.5mm jack + USB",
+            "design": "Lightweight and comfortable"
+        },
+        "specifications": {
+            "speaker_size": "40mm",
+            "mic_noise_cancellation": "Yes",
+            "connector_type": "3.5mm + USB"
+        },
+        "ratings": {
+            "average_rating": 4.4,
+            "total_reviews": 209
+        },
+        "total_sells": 1500
+    },
+    {
+        "_id": "2",
+        "model": "m170",
+        "productName": "mouse",
+        "title": "Logitech M170 Wireless Mouse",
+        "brand": "Logitech",
+        "category": "Electronics",
+        "price": 950,
+        "discount": 15,
+        "featured": true,
+        "flash_sale": true,
+        "color_family": ["Black", "Grey"],
+        "warranty": "1 year Brand Warranty",
+        "images": [
+            "https://i.ibb.co.com/BSFV9ZF/image.png",
+            "https://i.ibb.co.com/Ps1fTyGK/image.png",
+            "https://i.ibb.co.com/zWGX1k94/image.png"
+        ],
+        "features": {
+            "connectivity": "2.4GHz wireless",
+            "range": "Up to 10m",
+            "battery_life": "12 months"
+        },
+        "specifications": {
+            "sensor": "Optical",
+            "buttons": "3",
+            "dpi": "1000"
+        },
+        "ratings": {
+            "average_rating": 4.7,
+            "total_reviews": 312
+        },
+        "total_sells": 3200
+    },
+    {
+        "_id": "3",
+        "model": "x5",
+        "productName": "earbuds",
+        "title": "AirPro X5 True Wireless Earbuds",
+        "brand": "SoundMax",
+        "category": "Electronics",
+        "price": 2190,
+        "discount": 18,
+        "featured": false,
+        "flash_sale": true,
+        "color_family": ["Black", "White"],
+        "warranty": "1 year Warranty",
+        "images": [
+            "https://i.ibb.co.com/4RkTTHv9/image.png",
+            "https://i.ibb.co.com/gb9NTzrK/image.png",
+            "https://i.ibb.co.com/jvKDj4Fq/image.png"
+        ],
+        "features": {
+            "play_time": "Up to 20 hours",
+            "connectivity": "Bluetooth 5.1",
+            "charging": "USB-C fast charging"
+        },
+        "specifications": {
+            "water_resistant": "IPX4",
+            "driver_size": "10mm"
+        },
+        "ratings": {
+            "average_rating": 4.2,
+            "total_reviews": 145
+        },
+        "total_sells": 1800
+    },
+    {
+        "_id": "4",
+        "model": "z6",
+        "productName": "smart-watch",
+        "title": "Z6 Fitness Smart Watch with Heart Rate Monitor",
+        "brand": "SmartLife",
+        "category": "Electronics",
+        "price": 1690,
+        "discount": 22,
+        "featured": false,
+        "flash_sale": true,
+        "color_family": ["Black", "Pink"],
+        "warranty": "1 Year",
+        "images": [
+            "https://i.ibb.co.com/21QY0jKJ/image.png",
+            "https://i.ibb.co.com/fz72by1f/image.png",
+            "https://i.ibb.co.com/DgLWxqLW/image.png"
+        ],
+        "features": {
+            "functions": ["Heart Rate", "Step Count", "Sleep Tracking"],
+            "connectivity": "Bluetooth"
+        },
+        "specifications": {
+            "screen_size": "1.3 inch",
+            "battery_life": "7 days"
+        },
+        "ratings": {
+            "average_rating": 4.0,
+            "total_reviews": 165
+        },
+        "total_sells": 1200
+    },
+    {
+        "_id": "5",
+        "model": "iphone-14",
+        "productName": "phone",
+        "title": "Apple iPhone 14 128GB",
+        "brand": "Apple",
+        "category": "Electronics",
+        "price": 79900,
+        "discount": 8,
+        "featured": true,
+        "flash_sale": true,
+        "color_family": ["Black", "Blue", "Red"],
+        "warranty": "1 Year Apple Warranty",
+        "images": [
+            "https://i.ibb.co.com/GfKCGMnT/image.png",
+            "https://i.ibb.co.com/C5YwFtHP/image.png",
+            "https://i.ibb.co.com/Cp5WCB70/image.png"
+        ],
+        "features": {
+            "storage": "128GB",
+            "chip": "A15 Bionic",
+            "camera": "Dual 12MP"
+        },
+        "specifications": {
+            "screen_size": "6.1 inch",
+            "battery_life": "Up to 20 hours"
+        },
+        "ratings": {
+            "average_rating": 4.8,
+            "total_reviews": 250
+        },
+        "total_sells": 5000
+    },
+    {
+        "_id": "6",
+        "model": "macbook-air-m2",
+        "productName": "laptop",
+        "title": "Apple MacBook Air M2 256GB",
+        "brand": "Apple",
+        "category": "Electronics",
+        "price": 119900,
+        "discount": 10,
+        "featured": true,
+        "flash_sale": false,
+        "color_family": ["Silver", "Space Grey"],
+        "warranty": "1 Year Apple Warranty",
+        "images": [
+            "https://i.ibb.co.com/NdT4kxjc/image.png",
+            "https://i.ibb.co.com/ycbpSV0Y/image.png",
+            "https://i.ibb.co.com/ycbpSV0Y/image.png"
+        ],
+        "features": {
+            "processor": "M2 Chip",
+            "storage": "256GB SSD",
+            "display": "13.6-inch Retina"
+        },
+        "specifications": {
+            "ram": "8GB",
+            "battery_life": "Up to 18 hours"
+        },
+        "ratings": {
+            "average_rating": 4.9,
+            "total_reviews": 180
+        },
+        "total_sells": 3000
+    },
+    {
+        "_id": "7",
+        "model": "blender-500w",
+        "productName": "blender",
+        "title": "Sharp 500W Kitchen Blender With 2 Jars",
+        "brand": "Sharp",
+        "category": "Home & Kitchen",
+        "price": 2590,
+        "discount": 10,
+        "featured": true,
+        "flash_sale": false,
+        "color_family": ["White", "Black"],
+        "warranty": "2 years Manufacturer Warranty",
+        "images": [
+            "https://i.ibb.co.com/ycCGv3RP/image.png",
+            "https://i.ibb.co.com/dw7k9kCb/image.png",
+            "https://i.ibb.co.com/CsK2Gr7m/image.png"
+        ],
+        "features": {
+            "power": "500W_PLAY",
+            "capacity": "1.5L",
+            "blades": "Stainless steel blades"
+        },
+        "specifications": {
+            "voltage": "220V",
+            "speed_settings": "2 speed + pulse",
+            "material": "Plastic + Stainless Steel"
+        },
+        "ratings": {
+            "average_rating": 4.6,
+            "total_reviews": 118
+        },
+        "total_sells": 900
+    },
+    {
+        "_id": "8",
+        "model": "water-bottle-1l",
+        "productName": "water-bottle",
+        "title": "1L Stainless Steel Vacuum Water Bottle",
+        "brand": "AquaGuard",
+        "category": "Home & Kitchen",
+        "price": 499,
+        "discount": 12,
+        "featured": true,
+        "flash_sale": false,
+        "color_family": ["Silver"],
+        "warranty": "6 Months",
+        "images": [
+            "https://i.ibb.co.com/gZ64nbpk/image.png",
+            "https://i.ibb.co.com/FkXnQVJj/image.png",
+            "https://i.ibb.co.com/nq7b7sct/image.png"
+        ],
+        "features": {
+            "capacity": "1 liter",
+            "insulation": "Keeps hot/cold up to 12 hrs"
+        },
+        "specifications": {
+            "material": "Stainless Steel",
+            "weight": "300g"
+        },
+        "ratings": {
+            "average_rating": 4.5,
+            "total_reviews": 89
+        },
+        "total_sells": 2500
+    },
+    {
+        "_id": "9",
+        "model": "cookware-5pc",
+        "productName": "cookware-set",
+        "title": "Non-Stick Cookware Set (5 Pieces)",
+        "brand": "CookMate",
+        "category": "Home & Kitchen",
+        "price": 3150,
+        "discount": 25,
+        "featured": true,
+        "flash_sale": true,
+        "color_family": ["Black"],
+        "warranty": "6 Months",
+        "images": [
+            "https://i.ibb.co.com/RGgv9x5S/image.png",
+            "https://i.ibb.co.com/xKxKnhyC/image.png",
+            "https://i.ibb.co.com/pjfDcGRT/image.png"
+        ],
+        "features": {
+            "pieces": "5",
+            "non_stick_coating": "Yes",
+            "induction_safe": "Yes"
+        },
+        "specifications": {
+            "material": "Aluminum",
+            "handle": "Heat resistant"
+        },
+        "ratings": {
+            "average_rating": 4.6,
+            "total_reviews": 103
+        },
+        "total_sells": 1100
+    },
+    {
+        "_id": "10",
+        "model": "air-fryer-4l",
+        "productName": "air-fryer",
+        "title": "Philips 4L Digital Air Fryer",
+        "brand": "Philips",
+        "category": "Home & Kitchen",
+        "price": 7990,
+        "discount": 20,
+        "featured": false,
+        "flash_sale": true,
+        "color_family": ["Black"],
+        "warranty": "2 Years",
+        "images": [
+            "https://i.ibb.co.com/G10Tj6j/image.png",
+            "https://i.ibb.co.com/G10Tj6j/image.png",
+            "https://i.ibb.co.com/G10Tj6j/image.png"
+        ],
+        "features": {
+            "capacity": "4L",
+            "power": "1400W",
+            "cooking_modes": "Fry, Bake, Grill"
+        },
+        "specifications": {
+            "voltage": "220V",
+            "temperature_range": "80-200°C"
+        },
+        "ratings": {
+            "average_rating": 4.7,
+            "total_reviews": 95
+        },
+        "total_sells": 800
+    },
+    {
+        "_id": "13",
+        "model": "building-blocks",
+        "productName": "building-blocks",
+        "title": "Creative Kids Building Blocks Set",
+        "brand": "ToyMaster",
+        "category": "Toys & Games",
+        "price": 890,
+        "discount": 5,
+        "featured": false,
+        "flash_sale": true,
+        "color_family": ["Multicolor"],
+        "warranty": "No Warranty",
+        "images": [
+            "https://i.ibb.co.com/cS4PPMvt/image.png",
+            "https://i.ibb.co.com/RTHQQbKs/image.png",
+            "https://i.ibb.co.com/MyWgdPFr/image.png"
+        ],
+        "features": {
+            "pieces": "120 pieces",
+            "material": "Safe ABS plastic",
+            "age": "3+ years"
+        },
+        "specifications": {
+            "package_weight": "1kg",
+            "package_dimensions": "30x20x10cm"
+        },
+        "ratings": {
+            "average_rating": 4.3,
+            "total_reviews": 74
+        },
+        "total_sells": 1400
+    },
+    {
+        "_id": "14",
+        "model": "racing-car",
+        "productName": "remote-control-car",
+        "title": "Remote Control Racing Car - Red",
+        "brand": "ZoomToys",
+        "category": "Toys & Games",
+        "price": 1450,
+        "discount": 10,
+        "featured": true,
+        "flash_sale": false,
+        "color_family": ["Red", "Blue", "Yellow"],
+        "warranty": "No Warranty",
+        "images": [
+            "https://i.ibb.co.com/LdMwcJYC/image.png",
+            "https://i.ibb.co.com/4R8RjRgX/image.png",
+            "https://i.ibb.co.com/wZj11nrv/image.png"
+        ],
+        "features": {
+            "speed": "Up to 20 km/h",
+            "range": "Up to 30m"
+        },
+        "specifications": {
+            "battery": "Rechargeable (included)",
+            "material": "ABS Plastic"
+        },
+        "ratings": {
+            "average_rating": 4.1,
+            "total_reviews": 96
+        },
+        "total_sells": 1000
+    },
+    {
+        "_id": "15",
+        "model": "puzzle-500",
+        "productName": "puzzle",
+        "title": "500-Piece Nature Scene Puzzle",
+        "brand": "PuzzleFun",
+        "category": "Toys & Games",
+        "price": 690,
+        "discount": 8,
+        "featured": false,
+        "flash_sale": true,
+        "color_family": ["Multicolor"],
+        "warranty": "No Warranty",
+        "images": [
+            "https://i.ibb.co.com/6kpvC0B/image.png",
+            "https://i.ibb.co.com/6kpvC0B/image.png",
+            "https://i.ibb.co.com/6kpvC0B/image.png"
+        ],
+        "features": {
+            "pieces": "500",
+            "age": "8+ years",
+            "material": "Recycled cardboard"
+        },
+        "specifications": {
+            "dimensions": "48x34cm",
+            "weight": "0.5kg"
+        },
+        "ratings": {
+            "average_rating": 4.4,
+            "total_reviews": 65
+        },
+        "total_sells": 1600
+    },
+    {
+        "_id": "16",
+        "model": "barbie-dream",
+        "productName": "doll",
+        "title": "Barbie Dream Career Doll",
+        "brand": "Mattel",
+        "category": "Toys & Games",
+        "price": 1290,
+        "discount": 12,
+        "featured": true,
+        "flash_sale": false,
+        "color_family": ["Multicolor"],
+        "warranty": "No Warranty",
+        "images": [
+            "https://i.ibb.co.com/WNJ21fJ1/image.png",
+            "https://i.ibb.co.com/WNJ21fJ1/image.png",
+            "https://i.ibb.co.com/WNJ21fJ1/image.png"
+        ],
+        "features": {
+            "accessories": "Career-themed outfit",
+            "age": "3+ years",
+            "material": "Plastic"
+        },
+        "specifications": {
+            "height": "30cm",
+            "weight": "0.3kg"
+        },
+        "ratings": {
+            "average_rating": 4.6,
+            "total_reviews": 110
+        },
+        "total_sells": 1300
+    },
+    {
+        "_id": "19",
+        "model": "facial-cleanser",
+        "productName": "facial-cleanser",
+        "title": "Cetaphil Gentle Skin Cleanser 250ml",
+        "brand": "Cetaphil",
+        "category": "Beauty & Health",
+        "price": 890,
+        "discount": 10,
+        "featured": true,
+        "flash_sale": false,
+        "color_family": ["White"],
+        "warranty": "No Warranty",
+        "images": [
+            "https://i.ibb.co.com/M53Jx404/image.png",
+            "https://i.ibb.co.com/M53Jx404/image.png",
+            "https://i.ibb.co.com/M53Jx404/image.png"
+        ],
+        "features": {
+            "volume": "250ml",
+            "skin_type": "All skin types",
+            "fragrance_free": "Yes"
+        },
+        "specifications": {
+            "ingredients": "Water, Cetyl Alcohol",
+            "weight": "0.3kg"
+        },
+        "ratings": {
+            "average_rating": 4.7,
+            "total_reviews": 150
+        },
+        "total_sells": 2200
+    },
+    {
+        "_id": "20",
+        "model": "hair-dryer-2000w",
+        "productName": "hair-dryer",
+        "title": "Philips 2000W Ionic Hair Dryer",
+        "brand": "Philips",
+        "category": "Beauty & Health",
+        "price": 2990,
+        "discount": 15,
+        "featured": false,
+        "flash_sale": true,
+        "color_family": ["Black", "White"],
+        "warranty": "2 Years",
+        "images": [
+            "https://i.ibb.co.com/TMy4HdqF/image.png",
+            "https://i.ibb.co.com/TMy4HdqF/image.png",
+            "https://i.ibb.co.com/TMy4HdqF/image.png"
+        ],
+        "features": {
+            "power": "2000W",
+            "settings": "3 heat, 2 speed",
+            "ionic": "Yes"
+        },
+        "specifications": {
+            "voltage": "220V",
+            "weight": "0.6kg"
+        },
+        "ratings": {
+            "average_rating": 4.5,
+            "total_reviews": 120
+        },
+        "total_sells": 950
+    },
+    {
+        "_id": "21",
+        "model": "lipstick-matte",
+        "productName": "lipstick",
+        "title": "L'Oréal Paris Matte Lipstick Rouge",
+        "brand": "L'Oréal",
+        "category": "Beauty & Health",
+        "price": 590,
+        "discount": 12,
+        "featured": true,
+        "flash_sale": false,
+        "color_family": ["Red", "Pink", "Nude"],
+        "warranty": "No Warranty",
+        "images": [
+            "https://i.ibb.co.com/fYXn0XQ1/image.png",
+            "https://i.ibb.co.com/fYXn0XQ1/image.png",
+            "https://i.ibb.co.com/fYXn0XQ1/image.png"
+        ],
+        "features": {
+            "finish": "Matte",
+            "long_lasting": "Up to 8 hours",
+            "shade": "Multiple"
+        },
+        "specifications": {
+            "weight": "0.05kg",
+            "ingredients": "Natural oils"
+        },
+        "ratings": {
+            "average_rating": 4.6,
+            "total_reviews": 180
+        },
+        "total_sells": 2800
+    },
+    {
+        "_id": "22",
+        "model": "electric-toothbrush",
+        "productName": "toothbrush",
+        "title": "Oral-B Pro 500 Electric Toothbrush",
+        "brand": "Oral-B",
+        "category": "Beauty & Health",
+        "price": 3990,
+        "discount": 20,
+        "featured": false,
+        "flash_sale": true,
+        "color_family": ["White", "Blue"],
+        "warranty": "2 Years",
+        "images": [
+            "https://i.ibb.co.com/XxrS5xJq/image.png",
+            "https://i.ibb.co.com/XxrS5xJq/image.png",
+            "https://i.ibb.co.com/XxrS5xJq/image.png"
+        ],
+        "features": {
+            "modes": "Daily Clean",
+            "battery": "Rechargeable",
+            "timer": "2-minute"
+        },
+        "specifications": {
+            "weight": "0.3kg",
+            "battery_life": "7 days"
+        },
+        "ratings": {
+            "average_rating": 4.8,
+            "total_reviews": 140
+        },
+        "total_sells": 1100
+    },
+    {
+        "_id": "25",
+        "model": "yoga-mat-6mm",
+        "productName": "yoga-mat",
+        "title": "Gaiam 6mm Premium Yoga Mat",
+        "brand": "Gaiam",
+        "category": "Sports & Outdoors",
+        "price": 1990,
+        "discount": 10,
+        "featured": true,
+        "flash_sale": false,
+        "color_family": ["Blue", "Purple"],
+        "warranty": "No Warranty",
+        "images": [
+            "https://i.ibb.co.com/xKndBzds/image.png",
+            "https://i.ibb.co.com/xKndBzds/image.png",
+            "https://i.ibb.co.com/xKndBzds/image.png"
+        ],
+        "features": {
+            "thickness": "6mm",
+            "material": "PVC-free",
+            "non_slip": "Yes"
+        },
+        "specifications": {
+            "dimensions": "183x61cm",
+            "weight": "1.2kg"
+        },
+        "ratings": {
+            "average_rating": 4.6,
+            "total_reviews": 90
+        },
+        "total_sells": 1300
+    },
+    {
+        "_id": "26",
+        "model": "dumbbell-5kg",
+        "productName": "dumbbell",
+        "title": "5kg Adjustable Dumbbell Set",
+        "brand": "FitLife",
+        "category": "Sports & Outdoors",
+        "price": 2490,
+        "discount": 15,
+        "featured": false,
+        "flash_sale": true,
+        "color_family": ["Black"],
+        "warranty": "1 Year",
+        "images": [
+            "https://i.ibb.co.com/Xf9003B4/image.png",
+            "https://i.ibb.co.com/Xf9003B4/image.png",
+            "https://i.ibb.co.com/Xf9003B4/image.png"
+        ],
+        "features": {
+            "weight": "5kg per dumbbell",
+            "adjustable": "Yes",
+            "grip": "Non-slip"
+        },
+        "specifications": {
+            "material": "Steel and Rubber",
+            "weight": "10kg total"
+        },
+        "ratings": {
+            "average_rating": 4.5,
+            "total_reviews": 85
+        },
+        "total_sells": 900
+    },
+    {
+        "_id": "27",
+        "model": "treadmill-x1",
+        "productName": "treadmill",
+        "title": "ProForm X1 Folding Treadmill",
+        "brand": "ProForm",
+        "category": "Sports & Outdoors",
+        "price": 49900,
+        "discount": 12,
+        "featured": true,
+        "flash_sale": false,
+        "color_family": ["Black"],
+        "warranty": "2 Years",
+        "images": [
+            "https://i.ibb.co.com/35zYLnGs/image.png",
+            "https://i.ibb.co.com/35zYLnGs/image.png",
+            "https://i.ibb.co.com/35zYLnGs/image.png"
+        ],
+        "features": {
+            "speed": "Up to 16 km/h",
+            "incline": "0-10%",
+            "foldable": "Yes"
+        },
+        "specifications": {
+            "motor": "2.5 HP",
+            "weight": "90kg"
+        },
+        "ratings": {
+            "average_rating": 4.7,
+            "total_reviews": 70
+        },
+        "total_sells": 400
+    },
+    {
+        "_id": "28",
+        "model": "camping-tent-4p",
+        "productName": "tent",
+        "title": "Coleman 4-Person Camping Tent",
+        "brand": "Coleman",
+        "category": "Sports & Outdoors",
+        "price": 7990,
+        "discount": 20,
+        "featured": false,
+        "flash_sale": true,
+        "color_family": ["Green", "Blue"],
+        "warranty": "1 Year",
+        "images": [
+            "https://i.ibb.co.com/GQRv4xZ5/image.png",
+            "https://i.ibb.co.com/GQRv4xZ5/image.png",
+            "https://i.ibb.co.com/GQRv4xZ5/image.png"
+        ],
+        "features": {
+            "capacity": "4 persons",
+            "waterproof": "Yes",
+            "setup": "Easy setup"
+        },
+        "specifications": {
+            "dimensions": "240x210x140cm",
+            "weight": "5kg"
+        },
+        "ratings": {
+            "average_rating": 4.6,
+            "total_reviews": 100
+        },
+        "total_sells": 850
+    },
+    {
+        "_id": "32",
+        "model": "sneaker-air",
+        "productName": "sneaker",
+        "title": "Nike Air Zoom Sneakers Shoe",
+        "brand": "Nike",
+        "category": "Fashion",
+        "price": 7990,
+        "discount": 20,
+        "featured": false,
+        "flash_sale": true,
+        "color_family": ["White", "Black"],
+        "warranty": "No Warranty",
+        "images": [
+            "https://i.ibb.co.com/dwwd0Gjy/image.png",
+            "https://i.ibb.co.com/dwwd0Gjy/image.png",
+            "https://i.ibb.co.com/dwwd0Gjy/image.png"
+        ],
+        "features": {
+            "material": "Leather and Mesh",
+            "sole": "Rubber",
+            "comfort": "Air cushioning"
+        },
+        "specifications": {
+            "sizes": "7-11",
+            "weight": "0.8kg"
+        },
+        "ratings": {
+            "average_rating": 4.8,
+            "total_reviews": 200
+        },
+        "total_sells": 2000
+    },
+    {
+        "_id": "33",
+        "model": "handbag-classic",
+        "productName": "handbag",
+        "title": "Michael Kors Classic Leather Handbag",
+        "brand": "Michael Kors",
+        "category": "Fashion",
+        "price": 14990,
+        "discount": 25,
+        "featured": true,
+        "flash_sale": false,
+        "color_family": ["Black", "Brown"],
+        "warranty": "1 Year",
+        "images": [
+            "https://i.ibb.co.com/8D1MBnQC/image.png",
+            "https://i.ibb.co.com/8D1MBnQC/image.png",
+            "https://i.ibb.co.com/8D1MBnQC/image.png"
+        ],
+        "features": {
+            "material": "Leather",
+            "compartments": "2",
+            "strap": "Adjustable"
+        },
+        "specifications": {
+            "dimensions": "30x20x10cm",
+            "weight": "0.9kg"
+        },
+        "ratings": {
+            "average_rating": 4.7,
+            "total_reviews": 160
+        },
+        "total_sells": 1200
+    },
+    {
+        "_id": "34",
+        "model": "jeans-slim",
+        "productName": "jeans",
+        "title": "Levi's Slim Fit Men's Jeans",
+        "brand": "Levi's",
+        "category": "Fashion",
+        "price": 3990,
+        "discount": 15,
+        "featured": false,
+        "flash_sale": true,
+        "color_family": ["Blue", "Black"],
+        "warranty": "No Warranty",
+        "images": [
+            "https://i.ibb.co.com/MxjYkdSD/image.png",
+            "https://i.ibb.co.com/MxjYkdSD/image.png",
+            "https://i.ibb.co.com/MxjYkdSD/image.png"
+        ],
+        "features": {
+            "material": "Denim",
+            "fit": "Slim",
+            "stretch": "Yes"
+        },
+        "specifications": {
+            "sizes": "30-36",
+            "weight": "0.6kg"
+        },
+        "ratings": {
+            "average_rating": 4.6,
+            "total_reviews": 130
+        },
+        "total_sells": 1800
+    },
+    {
+        "_id": "37",
+        "model": "stroller-compact",
+        "productName": "stroller",
+        "title": "Chicco Compact Lightweight Stroller",
+        "brand": "Chicco",
+        "category": "Baby & Kids",
+        "price": 9990,
+        "discount": 15,
+        "featured": true,
+        "flash_sale": false,
+        "color_family": ["Black", "Blue"],
+        "warranty": "1 Year",
+        "images": [
+            "https://i.ibb.co.com/sJKthKhr/image.png",
+            "https://i.ibb.co.com/sJKthKhr/image.png",
+            "https://i.ibb.co.com/sJKthKhr/image.png"
+        ],
+        "features": {
+            "foldable": "Yes",
+            "weight": "Lightweight",
+            "age": "0-3 years"
+        },
+        "specifications": {
+            "weight": "7kg",
+            "dimensions": "104x48x80cm"
+        },
+        "ratings": {
+            "average_rating": 4.6,
+            "total_reviews": 120
+        },
+        "total_sells": 700
+    },
+    {
+        "_id": "38",
+        "model": "diapers-size3",
+        "productName": "diapers",
+        "title": "Pampers Size 3 Diapers 60-Pack",
+        "brand": "Pampers",
+        "category": "Baby & Kids",
+        "price": 1490,
+        "discount": 10,
+        "featured": false,
+        "flash_sale": true,
+        "color_family": ["White"],
+        "warranty": "No Warranty",
+        "images": [
+            "https://i.ibb.co.com/dYNSwbb/image.png",
+            "https://i.ibb.co.com/dYNSwbb/image.png",
+            "https://i.ibb.co.com/dYNSwbb/image.png"
+        ],
+        "features": {
+            "size": "3",
+            "quantity": "60",
+            "absorbency": "12 hours"
+        },
+        "specifications": {
+            "weight": "2kg",
+            "age": "4-9kg"
+        },
+        "ratings": {
+            "average_rating": 4.8,
+            "total_reviews": 200
+        },
+        "total_sells": 3000
+    },
+    {
+        "_id": "39",
+        "model": "baby-monitor-hd",
+        "productName": "baby-monitor",
+        "title": "Motorola HD Video Baby Monitor",
+        "brand": "Motorola",
+        "category": "Baby & Kids",
+        "price": 5990,
+        "discount": 20,
+        "featured": true,
+        "flash_sale": false,
+        "color_family": ["White"],
+        "warranty": "1 Year",
+        "images": [
+            "https://i.ibb.co.com/RT7yNnTn/image.png",
+            "https://i.ibb.co.com/RT7yNnTn/image.png",
+            "https://i.ibb.co.com/RT7yNnTn/image.png"
+        ],
+        "features": {
+            "range": "300m",
+            "camera": "HD",
+            "night_vision": "Yes"
+        },
+        "specifications": {
+            "screen_size": "5 inch",
+            "battery_life": "6 hours"
+        },
+        "ratings": {
+            "average_rating": 4.7,
+            "total_reviews": 110
+        },
+        "total_sells": 850
+    },
+    {
+        "_id": "40",
+        "model": "crib-portable",
+        "productName": "crib",
+        "title": "Graco Portable Folding Crib",
+        "brand": "Graco",
+        "category": "Baby & Kids",
+        "price": 7990,
+        "discount": 15,
+        "featured": false,
+        "flash_sale": true,
+        "color_family": ["Grey", "White"],
+        "warranty": "1 Year",
+        "images": [
+            "https://i.ibb.co.com/vvDzPgtk/image.png",
+            "https://i.ibb.co.com/vvDzPgtk/image.png",
+            "https://i.ibb.co.com/vvDzPgtk/image.png"
+        ],
+        "features": {
+            "foldable": "Yes",
+            "mattress": "Included",
+            "age": "0-2 years"
+        },
+        "specifications": {
+            "dimensions": "120x60x80cm",
+            "weight": "10kg"
+        },
+        "ratings": {
+            "average_rating": 4.6,
+            "total_reviews": 95
+        },
+        "total_sells": 600
+    },
+    {
+        "_id": "43",
+        "model": "notebook-a5",
+        "productName": "notebook",
+        "title": "Moleskine A5 Hardcover Notebook",
+        "brand": "Moleskine",
+        "category": "Books & Stationery",
+        "price": 1290,
+        "discount": 10,
+        "featured": true,
+        "flash_sale": false,
+        "color_family": ["Black", "Blue"],
+        "warranty": "No Warranty",
+        "images": [
+            "https://i.ibb.co.com/j91VhJJq/image.png",
+            "https://i.ibb.co.com/j91VhJJq/image.png",
+            "https://i.ibb.co.com/j91VhJJq/image.png"
+        ],
+        "features": {
+            "pages": "240",
+            "paper": "Acid-free",
+            "cover": "Hardcover"
+        },
+        "specifications": {
+            "dimensions": "21x13cm",
+            "weight": "0.3kg"
+        },
+        "ratings": {
+            "average_rating": 4.8,
+            "total_reviews": 160
+        },
+        "total_sells": 2000
+    },
+    {
+        "_id": "44",
+        "model": "pen-gel",
+        "productName": "pen",
+        "title": "Pilot G2 Gel Pen 0.7mm",
+        "brand": "Pilot",
+        "category": "Books & Stationery",
+        "price": 190,
+        "discount": 5,
+        "featured": false,
+        "flash_sale": true,
+        "color_family": ["Black", "Blue", "Red"],
+        "warranty": "No Warranty",
+        "images": [
+            "https://i.ibb.co.com/N6tJwq51/image.png",
+            "https://i.ibb.co.com/N6tJwq51/image.png",
+            "https://i.ibb.co.com/N6tJwq51/image.png"
+        ],
+        "features": {
+            "ink": "Gel",
+            "tip": "0.7mm",
+            "refillable": "Yes"
+        },
+        "specifications": {
+            "weight": "0.01kg",
+            "length": "14cm"
+        },
+        "ratings": {
+            "average_rating": 4.7,
+            "total_reviews": 200
+        },
+        "total_sells": 5000
+    },
+    {
+        "_id": "45",
+        "model": "book-harry-potter",
+        "productName": "book",
+        "title": "Harry Potter and the Philosopher's Stone",
+        "brand": "Bloomsbury",
+        "category": "Books & Stationery",
+        "price": 990,
+        "discount": 15,
+        "featured": true,
+        "flash_sale": false,
+        "color_family": ["Multicolor"],
+        "warranty": "No Warranty",
+        "images": [
+            "https://i.ibb.co.com/bjMGzbbx/image.png",
+            "https://i.ibb.co.com/bjMGzbbx/image.png",
+            "https://i.ibb.co.com/bjMGzbbx/image.png"
+        ],
+        "features": {
+            "pages": "223",
+            "format": "Paperback",
+            "age": "8+ years"
+        },
+        "specifications": {
+            "dimensions": "19x13x2cm",
+            "weight": "0.3kg"
+        },
+        "ratings": {
+            "average_rating": 4.9,
+            "total_reviews": 250
+        },
+        "total_sells": 3500
+    },
+    {
+        "_id": "46",
+        "model": "pencil-colored",
+        "productName": "pencil",
+        "title": "Faber-Castell 24-Pack Colored Pencils",
+        "brand": "Faber-Castell",
+        "category": "Books & Stationery",
+        "price": 690,
+        "discount": 10,
+        "featured": false,
+        "flash_sale": true,
+        "color_family": ["Multicolor"],
+        "warranty": "No Warranty",
+        "images": [
+            "https://i.ibb.co.com/YBhgZdG7/image.png",
+            "https://i.ibb.co.com/YBhgZdG7/image.png",
+            "https://i.ibb.co.com/YBhgZdG7/image.png"
+        ],
+        "features": {
+            "quantity": "24",
+            "material": "Wood",
+            "break_resistant": "Yes"
+        },
+        "specifications": {
+            "length": "17cm",
+            "weight": "0.2kg"
+        },
+        "ratings": {
+            "average_rating": 4.6,
+            "total_reviews": 140
+        },
+        "total_sells": 2200
+    },
+    {
+        "_id": "48",
+        "model": "highlighter-4pack",
+        "productName": "highlighter",
+        "title": "Staedtler 4-Pack Highlighters",
+        "brand": "Staedtler",
+        "category": "Books & Stationery",
+        "price": 390,
+        "discount": 8,
+        "featured": false,
+        "flash_sale": true,
+        "color_family": ["Yellow", "Pink", "Green", "Blue"],
+        "warranty": "No Warranty",
+        "images": [
+            "https://i.ibb.co.com/DgLPYzP5/image.png",
+            "https://i.ibb.co.com/DgLPYzP5/image.png",
+            "https://i.ibb.co.com/DgLPYzP5/image.png"
+        ],
+        "features": {
+            "quantity": "4",
+            "ink": "Fluorescent",
+            "tip": "Chisel"
+        },
+        "specifications": {
+            "weight": "0.1kg",
+            "length": "12cm"
+        },
+        "ratings": {
+            "average_rating": 4.5,
+            "total_reviews": 130
+        },
+        "total_sells": 3000
+    },
+    {
+        "_id": "49",
+        "model": "vase-ceramic",
+        "productName": "vase",
+        "title": "Ikea Ceramic Decorative Vase",
+        "brand": "Ikea",
+        "category": "Home Decor",
+        "price": 990,
+        "discount": 10,
+        "featured": true,
+        "flash_sale": false,
+        "color_family": ["White", "Blue"],
+        "warranty": "No Warranty",
+        "images": [
+            "https://i.ibb.co.com/pjsnbJ5n/image.png",
+            "https://i.ibb.co.com/pjsnbJ5n/image.png",
+            "https://i.ibb.co.com/pjsnbJ5n/image.png"
+        ],
+        "features": {
+            "material": "Ceramic",
+            "style": "Modern",
+            "use": "Decorative"
+        },
+        "specifications": {
+            "height": "25cm",
+            "weight": "0.8kg"
+        },
+        "ratings": {
+            "average_rating": 4.6,
+            "total_reviews": 100
+        },
+        "total_sells": 1500
+    },
+    {
+        "_id": "50",
+        "model": "curtain-2panel",
+        "productName": "curtain",
+        "title": "West Elm 2-Panel Linen Curtain Set",
+        "brand": "West Elm",
+        "category": "Home Decor",
+        "price": 3990,
+        "discount": 15,
+        "featured": false,
+        "flash_sale": true,
+        "color_family": ["Beige", "Grey"],
+        "warranty": "No Warranty",
+        "images": [
+            "https://i.ibb.co.com/Swrw1ncR/image.png",
+            "https://i.ibb.co.com/Swrw1ncR/image.png",
+            "https://i.ibb.co.com/Swrw1ncR/image.png"
+        ],
+        "features": {
+            "material": "Linen",
+            "panels": "2",
+            "light_filtering": "Yes"
+        },
+        "specifications": {
+            "dimensions": "140x250cm",
+            "weight": "1.5kg"
+        },
+        "ratings": {
+            "average_rating": 4.7,
+            "total_reviews": 90
+        },
+        "total_sells": 800
+    },
+    {
+        "_id": "51",
+        "model": "wall-art-abstract",
+        "productName": "wall-art",
+        "title": "Abstract Canvas Wall Art 60x90cm",
+        "brand": "Artisan",
+        "category": "Home Decor",
+        "price": 2990,
+        "discount": 12,
+        "featured": true,
+        "flash_sale": false,
+        "color_family": ["Multicolor"],
+        "warranty": "No Warranty",
+        "images": [
+            "https://i.ibb.co.com/2mw95dg/image.png",
+            "https://i.ibb.co.com/2mw95dg/image.png",
+            "https://i.ibb.co.com/2mw95dg/image.png"
+        ],
+        "features": {
+            "material": "Canvas",
+            "style": "Abstract",
+            "frame": "Wooden"
+        },
+        "specifications": {
+            "dimensions": "60x90cm",
+            "weight": "2kg"
+        },
+        "ratings": {
+            "average_rating": 4.5,
+            "total_reviews": 80
+        },
+        "total_sells": 1000
+    },
+    {
+        "_id": "52",
+        "model": "table-lamp",
+        "productName": "lamp",
+        "title": "Philips Modern Table Lamp",
+        "brand": "Philips",
+        "category": "Home Decor",
+        "price": 2490,
+        "discount": 10,
+        "featured": false,
+        "flash_sale": true,
+        "color_family": ["White", "Black"],
+        "warranty": "1 Year",
+        "images": [
+            "https://i.ibb.co.com/cSw9yWW7/image.png",
+            "https://i.ibb.co.com/cSw9yWW7/image.png",
+            "https://i.ibb.co.com/cSw9yWW7/image.png"
+        ],
+        "features": {
+            "light": "LED",
+            "brightness": "Adjustable",
+            "style": "Modern"
+        },
+        "specifications": {
+            "height": "40cm",
+            "power": "10W"
+        },
+        "ratings": {
+            "average_rating": 4.6,
+            "total_reviews": 110
+        },
+        "total_sells": 1200
+    },
+    {
+        "_id": "53",
+        "model": "rug-160x230",
+        "productName": "rug",
+        "title": "IKEA 160x230cm Shaggy Rug",
+        "brand": "IKEA",
+        "category": "Home Decor",
+        "price": 4990,
+        "discount": 15,
+        "featured": true,
+        "flash_sale": false,
+        "color_family": ["Grey", "Beige"],
+        "warranty": "No Warranty",
+        "images": [
+            "https://i.ibb.co.com/qLBb0Z59/image.png",
+            "https://i.ibb.co.com/qLBb0Z59/image.png",
+            "https://i.ibb.co.com/qLBb0Z59/image.png"
+        ],
+        "features": {
+            "material": "Polyester",
+            "texture": "Shaggy",
+            "non_slip": "Yes"
+        },
+        "specifications": {
+            "dimensions": "160x230cm",
+            "weight": "5kg"
+        },
+        "ratings": {
+            "average_rating": 4.7,
+            "total_reviews": 95
+        },
+        "total_sells": 900
+    },
+    {
+        "_id": "54",
+        "model": "mirror-wall",
+        "productName": "mirror",
+        "title": "Decorative Round Wall Mirror 80cm",
+        "brand": "HomeTrends",
+        "category": "Home Decor",
+        "price": 3990,
+        "discount": 20,
+        "featured": false,
+        "flash_sale": true,
+        "color_family": ["Gold", "Silver"],
+        "warranty": "No Warranty",
+        "images": [
+            "https://i.ibb.co.com/fd5zMcgQ/image.png",
+            "https://i.ibb.co.com/fd5zMcgQ/image.png",
+            "https://i.ibb.co.com/fd5zMcgQ/image.png"
+        ],
+        "features": {
+            "shape": "Round",
+            "frame": "Metal",
+            "style": "Modern"
+        },
+        "specifications": {
+            "diameter": "80cm",
+            "weight": "4kg"
+        },
+        "ratings": {
+            "average_rating": 4.8,
+            "total_reviews": 100
+        },
+        "total_sells": 1100
+    }
+]

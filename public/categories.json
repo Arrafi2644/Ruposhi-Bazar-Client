@@ -1,0 +1,48 @@
+[
+    {
+      "_id": 1,
+      "name": "Electronics",
+      "image": "https://i.ibb.co.com/WXR2MMg/camera-510530-1280.jpg"
+    },
+    {
+      "_id": 3,
+      "name": "Home & Kitchen",
+      "image": "https://i.ibb.co.com/YBq40xPF/kitchen-1872195-1280.jpg"
+    },
+    {
+      "_id": 4,
+      "name": "Beauty & Health",
+      "image": "https://i.ibb.co.com/zTHhT6zk/makeup-brushes-1761648-1280.jpg"
+    },
+    {
+      "_id": 5,
+      "name": "Sports & Outdoors",
+      "image": "https://i.ibb.co.com/B2qYMdBG/sport-6961584-1280.jpg"
+    },
+    {
+      "_id": 6,
+      "name": "Toys & Games",
+      "image": "https://i.ibb.co.com/5gtLD7t4/dice-1502706-1280.jpg"
+    },
+    {
+        "_id": 7,
+        "name": "Fashion",
+        "image": "https://i.ibb.co.com/Y4N1L3cV/image.png"
+      },
+      {
+        "_id": 8,
+        "name": "Baby & Kids",
+        "image": "https://i.ibb.co.com/FbKR5WXt/image.png"
+      },
+      {
+        "_id": 9,
+        "name": "Books & Stationery",
+        "image": "https://i.ibb.co.com/rG4Hv7yy/image.png"
+      },
+      {
+        "_id": 10,
+        "name": "Home Decor",
+        "image": "https://i.ibb.co.com/HvBMxTM/image.png"
+      }
+  ]
+  
