@@ -35,7 +35,7 @@ const Navbar = () => {
                         <li><Link ><IoCartOutline size={24} />  <span className='hidden lg:block'>Cart</span></Link></li>
                       
                         <div className="dropdown">
-                            <div tabIndex={0} role="button" className="text-right"><IoMenuSharp size={20} /></div>
+                            <div tabIndex={0} role="button" className="text-right p-1.5 hover:bg-base-300 cursor-pointer rounded-md"><IoMenuSharp size={20} /></div>
                             <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-36 -right-1 pr-0 top-7 shadow-sm">
                                 <li className=''><Link >Home</Link></li>
                                 <li className=''><Link >All Products</Link></li>
