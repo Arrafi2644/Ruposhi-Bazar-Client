@@ -9,17 +9,24 @@ const ProductsDetails = () => {
     const location = useLocation();
     const product = location?.state;
     const [productImage, setProductImage] = useState(0)
-    const [count, setCount] = useState(1);
+    const [quantityCount, setQuantityCount] = useState(1);
+ 
 
     const handleDecrease = () => {
-        if (count > 1) {
-            setCount(prev => prev - 1);
+        if (quantityCount > 1) {
+            setQuantityCount(prev => prev - 1);
         }
     };
 
     const handleIncrease = () => {
-        setCount(prev => prev + 1);
+        setQuantityCount(prev => prev + 1);
     };
+
+    const productInfo = {
+        product,
+        quantity: quantityCount
+        
+    }
     return (
         <div className='mt-6 font-medium'>
             <div className='flex items-center flex-wrap gap-1 mb-4'>
@@ -68,7 +75,7 @@ const ProductsDetails = () => {
                                 >
                                     −
                                 </button>
-                                <span className="px-4 text-base font-medium">{count}</span>
+                                <span className="px-4 text-base font-medium">{quantityCount}</span>
                                 <button
                                     onClick={handleIncrease}
                                     className="text-base px-2 text-gray-500 cursor-pointer hover:text-black"
@@ -80,7 +87,7 @@ const ProductsDetails = () => {
                         <button className="btn btn-outline border-gray-300"> <span><IoCartOutline size={18} /></span> Add To Cart</button>
                         {/* <button className="btn btn-outline border-gray-300"><BiHeart size={22} /></button> */}
                     </div>
-                    <Link to='/order-page' state={product}>
+                    <Link to='/order-page' state={productInfo}>
                         <button className="btn bg-yellow-900 text-gray-50 w-full">Order Now</button>
                     </Link>
                 </div>

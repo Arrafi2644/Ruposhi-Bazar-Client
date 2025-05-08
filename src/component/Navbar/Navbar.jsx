@@ -14,7 +14,7 @@ const Navbar = () => {
                 {/* nav-1  */}
                 <div className="navbar flex justify-between container mx-auto px-2 md:px-4">
                     <div className="navbar-start w-auto md:w-1/3">
-                        <Link to={'/'} className="font-semibold text-xl text-white ">RuposheeBazar</Link>
+                        <Link to={'/'} className="font-semibold text-xl  ">RuposheeBazar</Link>
                     </div>
 
                     {/* Search bar  */}
@@ -26,19 +26,19 @@ const Navbar = () => {
                     </div>
 
                     <div className="navbar-end grow">
-                        <ul className='menu menu-horizontal px-1 hidden md:flex items-center '>
+                        <ul className='menu menu-horizontal px-1 hidden md:flex items-center'>
                             {/* <li><Link ><AiOutlineHome size={20} />  <span className='hidden lg:block'>Home</span></Link></li> */}
                             <li><Link ><IoCartOutline size={20} /></Link></li>
-                            <li><Link >Home</Link></li>
-                            <li><Link >All Products</Link></li>
-                            <li><Link >Login</Link></li>
+                            <li ><Link >Home</Link></li>
+                            <li ><Link >All Products</Link></li>
+                            <li ><Link >Login</Link></li>
                         </ul>
-                        <ul className='menu menu-horizontal px-1 flex md:hidden items-center'>
+                        <ul className='menu menu-horizontal px-1 flex md:hidden items-center '>
                             <li><Link ><IoCartOutline size={24} />  <span className='hidden lg:block'>Cart</span></Link></li>
 
                             <div className="dropdown">
                                 <div tabIndex={0} role="button" className="text-right p-1.5 hover:bg-base-300 cursor-pointer rounded-md"><IoMenuSharp size={20} /></div>
-                                <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-36 -right-1 pr-0 top-7 shadow-sm">
+                                <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-36 -right-1 pr-0 top-7 shadow-sm text-gray-900">
                                     <li className=''><Link >Home</Link></li>
                                     <li className=''><Link >All Products</Link></li>
                                     <li className=''><Link > Login</Link></li>
