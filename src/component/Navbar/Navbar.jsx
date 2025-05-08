@@ -31,7 +31,7 @@ const Navbar = () => {
                             <li><Link ><IoCartOutline size={20} /></Link></li>
                             <li ><Link >Home</Link></li>
                             <li ><Link >All Products</Link></li>
-                            <li ><Link >Login</Link></li>
+                            <li ><Link to='/login'>Login</Link></li>
                         </ul>
                         <ul className='menu menu-horizontal px-1 flex md:hidden items-center '>
                             <li><Link ><IoCartOutline size={24} />  <span className='hidden lg:block'>Cart</span></Link></li>
@@ -41,7 +41,7 @@ const Navbar = () => {
                                 <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-36 -right-1 pr-0 top-7 shadow-sm text-gray-900">
                                     <li className=''><Link >Home</Link></li>
                                     <li className=''><Link >All Products</Link></li>
-                                    <li className=''><Link > Login</Link></li>
+                                    <li className=''><Link to='/login'> Login</Link></li>
                                 </ul>
                             </div>
                         </ul>
