@@ -115,10 +115,7 @@ const ProductsDetails = () => {
                             <FaTruck className="text-black" />
                             <p>Delivery Charge Outside Dhaka 120 TK</p>
                         </div>
-                        <div className="flex items-center gap-2">
-                            <FaTruck className="text-black" />
-                            <p>Delivery Charge Dhaka Suburb 100 TK</p>
-                        </div>
+                       
                     </div>
 
                     {/* Contact Section */}
@@ -126,7 +123,7 @@ const ProductsDetails = () => {
                         <p>Have question about this product? please call</p>
                         <div className="flex items-center gap-2">
                             <FaPhoneAlt className="text-yellow-900" />
-                            <span className="text-yellow-900 font-medium">01408788475</span>
+                            <span className="text-yellow-900 font-medium">01751166818</span>
                         </div>
                     </div>
                 </div>
