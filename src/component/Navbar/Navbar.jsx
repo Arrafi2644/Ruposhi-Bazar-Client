@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { AiOutlineHome } from 'react-icons/ai';
 import { CiMenuFries } from 'react-icons/ci';
 import { IoCartOutline, IoMenuSharp } from 'react-icons/io5';
 import { MdCategory, MdOutlineAccountCircle, MdOutlineCategory } from 'react-icons/md';
 import { PiStorefront } from 'react-icons/pi';
 import { Link } from 'react-router';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Navbar = () => {
+    const { user, logoutUser } = useContext(AuthContext)
+    console.log(user?.displayName);
+    const handleLogout = () => {
+        logoutUser();
+        toast.success("Logout successful!")
+    }
+
+    
     return (
-    <div className='sticky top-0 z-50 bg-yellow-900 text-white shadow-sm'>
+        <div className='sticky top-0 z-50 bg-yellow-900 text-white shadow-sm'>
 
             <div className='sticky top-0 left-0 z-50'>
                 {/* nav-1  */}
@@ -31,7 +41,15 @@ const Navbar = () => {
                             <li><Link ><IoCartOutline size={20} /></Link></li>
                             <li ><Link >Home</Link></li>
                             <li ><Link to='/all-products'>All Products</Link></li>
-                            <li ><Link to='/login'>Login</Link></li>
+                            <li className=''> {
+                                user ?
+                                    <div>
+                                        <Link to='/'>Hi <span>{user?.displayName}</span></Link>
+                                    </div>
+                                    : <Link to='/login'> Login</Link>
+                            } </li>
+                            { user && <button onClick={handleLogout} className="btn">Logout</button>
+                        }
                         </ul>
                         <ul className='menu menu-horizontal px-1 flex md:hidden items-center '>
                             <li><Link ><IoCartOutline size={24} />  <span className='hidden lg:block'>Cart</span></Link></li>
@@ -39,9 +57,12 @@ const Navbar = () => {
                             <div className="dropdown">
                                 <div tabIndex={0} role="button" className="text-right p-1.5 hover:bg-base-300 cursor-pointer rounded-md"><IoMenuSharp size={20} /></div>
                                 <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-36 -right-1 pr-0 top-7 shadow-sm text-gray-900">
-                                    <li className=''><Link >Home</Link></li>
+                                    <li className=''><Link to='/' >Home</Link></li>
                                     <li className=''><Link to='/all-products'>All Products</Link></li>
-                                    <li className=''><Link to='/login'> Login</Link></li>
+                                    <li className=''> {
+                                        user ?
+                                            <Link to='/'>{user?.displayNamename}</Link> : <Link to='/login'> Login</Link>
+                                    } </li>
                                 </ul>
                             </div>
                         </ul>
