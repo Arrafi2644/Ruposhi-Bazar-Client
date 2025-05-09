@@ -2,10 +2,12 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import { FcGoogle } from "react-icons/fc";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 const Login = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const {loginUser, googleLogin} = useAuth()
-
+  const axiosPublic = useAxiosPublic()
   const validateBangladeshiPhoneNumber = (value) => {
     const phoneRegex = /^01[3-9]\d{8}$/; // Starts with 01, followed by 3-9, then 8 digits
     return phoneRegex.test(value) || "Invalid phone number";
@@ -38,13 +40,28 @@ const Login = () => {
   // Google login 
   const handleLoginWithGoogle = () => {
     googleLogin()
-    .then(res => {
-      toast.success("Registered successfully!")
-    })
-    .catch(err => {
-      console.log(err);
-      toast.error("Something went wrong")
-    })
+      .then(res => {
+        // toast.success("Registered successfully!")
+        console.log(res);
+        const userInfo = {
+          name: res?.user?.displayName,
+          email: res?.user?.email,
+          role: "user"
+        }
+        console.log("gl ", userInfo);
+        axiosPublic.post("/users", userInfo)
+          .then(res => {
+              toast.success("Login successfully!")
+          })
+          .catch(err => {
+            console.log(err);
+            toast.error("Something went wrong!")
+          })
+      })
+      .catch(err => {
+        console.log(err);
+        toast.error("Something went wrong")
+      })
   }
 
   return (
@@ -61,7 +78,7 @@ const Login = () => {
           {errors.mobileNo && <p className="text-red-500 text-sm mt-1">{errors.mobileNo.message}</p>}
         </div> */}
                 <div>
-          <label className="block text-sm font-medium mb-1">Email</label>
+          <label className="block text-sm font-medium mb-1">Email *</label>
           <input
             {...register("email", { required: "The email field is required.", validate: validateEmail })}
             className="w-full p-2 border border-gray-300 rounded"
@@ -83,7 +100,7 @@ const Login = () => {
         <button type="submit" className="w-full bg-yellow-900 cursor-pointer text-white p-2 rounded">Login</button>
       </form>
       <div className="divider"></div>
-      <div><button onClick={handleLoginWithGoogle} className="btn btn-outline w-full"><span></span> Login with google</button></div>
+      <div><button onClick={handleLoginWithGoogle} className="btn btn-outline w-full flex items-center"><span><FcGoogle/></span> Login with google</button></div>
       <p className="text-center mt-4 font-medium">
         Don't have any account? <Link className="text-yellow-900" to="/signup">Signup</Link>
       </p>
