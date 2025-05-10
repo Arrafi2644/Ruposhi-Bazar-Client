@@ -1,13 +1,18 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 const Login = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const {loginUser, googleLogin} = useAuth()
-  const axiosPublic = useAxiosPublic()
+  const {loginUser, googleLogin} = useAuth();
+  const axiosPublic = useAxiosPublic();
+  const location = useLocation();
+  const from = location?.state;
+  const product = location.state?.product;
+
+  const navigate = useNavigate();
   const validateBangladeshiPhoneNumber = (value) => {
     const phoneRegex = /^01[3-9]\d{8}$/; // Starts with 01, followed by 3-9, then 8 digits
     return phoneRegex.test(value) || "Invalid phone number";
@@ -30,6 +35,7 @@ const Login = () => {
    loginUser(email, password)
    .then(res => {
     toast.success("Login successful!")
+    navigate(from ? from?.from : "/", {state: product})
    })
    .catch(err => {
     console.log(err);
@@ -51,6 +57,7 @@ const Login = () => {
         axiosPublic.post("/users", userInfo)
           .then(res => {
               toast.success("Login successfully!")
+              navigate(from ? from?.from : "/", {state: product})
           })
           .catch(err => {
             console.log(err);
@@ -101,7 +108,7 @@ const Login = () => {
       <div className="divider"></div>
       <div><button onClick={handleLoginWithGoogle} className="btn border-gray-300 btn-outline w-full flex items-center"><span><FcGoogle/></span> Login with google</button></div>
       <p className="text-center mt-4 font-medium">
-        Don't have any account? <Link className="text-yellow-900" to="/signup">Signup</Link>
+        Don't have any account? <Link state={{ from: from?.from, product }} className="text-yellow-900" to="/signup">Signup</Link>
       </p>
     </div>
   );

@@ -6,6 +6,7 @@ import OrderPage from "../pages/OrderPage/OrderPage";
 import Signup from "../pages/Signup/Signup";
 import Login from "../pages/Login/Login";
 import AllProducts from "../pages/AllProducts/AllProducts";
+import PrivateRoute from "../PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
         },
         {
           path: 'order-page',
-          element: <OrderPage/>
+          element: <PrivateRoute><OrderPage/></PrivateRoute>
         },
         {
           path: "signup",

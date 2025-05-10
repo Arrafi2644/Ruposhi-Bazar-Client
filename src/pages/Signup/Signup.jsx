@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
@@ -7,8 +7,12 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 const Signup = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const { signUpUser, updateUserProfile, googleLogin } = useAuth();
-
   const axiosPublic = useAxiosPublic()
+  const location = useLocation();
+  console.log(location);
+  const from = location?.state;
+  const product = location.state?.product;
+  const navigate = useNavigate();
 
   const validateBangladeshiPhoneNumber = (value) => {
     const phoneRegex = /^01[3-9]\d{8}$/; // Starts with 01, followed by 3-9, then 8 digits
@@ -50,6 +54,8 @@ const Signup = () => {
               .then(res => {
                 console.log(res);
                 toast.success("Registered successfully!")
+                navigate(from?.from ? from?.from : "/", { state: product })
+
               })
               .catch(err => {
                 console.log(err);
@@ -79,10 +85,10 @@ const Signup = () => {
           email: res?.user?.email,
           role: "user"
         }
-        console.log("gl ", userInfo);
         axiosPublic.post("/users", userInfo)
           .then(res => {
-              toast.success("Registered successfully!")
+            toast.success("Registered successfully!")
+            navigate(from?.from ? from?.from : "/", { state: product })
           })
           .catch(err => {
             console.log(err);
@@ -142,7 +148,7 @@ const Signup = () => {
       <div className="divider"></div>
       <div><button onClick={handleLoginWithGoogle} className="btn border-gray-300 btn-outline w-full flex items-center"><span><FcGoogle /></span> Login with google</button></div>
       <p className="text-center mt-4 font-medium">
-        Already have an account? <Link className="text-yellow-900" to="/login">Login</Link>
+        Already have an account? <Link state={{ from: from?.from, product }} className="text-yellow-900" to="/login">Login</Link>
       </p>
     </div>
   );
