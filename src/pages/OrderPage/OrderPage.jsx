@@ -45,7 +45,7 @@ const OrderPage = () => {
             discountAmount: discount,
             totalPayableAmount: totalAmount,
             product: product,
-            status: "new",
+            status: "New",
             paymentMethod: "Cash on delivery",
             orderDate: new Date().toLocaleString("en-US", { timeZone: "Asia/Dhaka" })
         };

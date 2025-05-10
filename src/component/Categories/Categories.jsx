@@ -19,9 +19,9 @@ const Categories = () => {
                 <h2 className='text-lg md:text-xl font-semibold'>Categories</h2>
             </div>
             {/* section content */}
-            <div className='flex flex-wrap gap-2 '>
+            <div className='flex flex-wrap gap-1 justify-between md:justify-start '>
                 {
-                    categories.map(category => <Link  key={category._id} className=' p-2 w-32 flex items-center flex-col border hover:shadow-md hover:border border-gray-200 bg-white'>
+                    categories.map(category => <Link  key={category._id} className=' p-2 w-28 md:w-32 flex items-center flex-col border hover:shadow-md hover:border border-gray-200 bg-white'>
                         <img className='w-full h-20 object-cover' src={category.image} alt={category.name} />
                         <h3 className='text-center mt-1'>{category.name}</h3>
                     </Link>)

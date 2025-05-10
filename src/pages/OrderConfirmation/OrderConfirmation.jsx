@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const OrderConfirmation = () => {
     const location = useLocation();
@@ -49,7 +49,7 @@ const OrderConfirmation = () => {
                     <p><strong>Area:</strong> {deliveryArea}</p>
                     <p><strong>Date:</strong> {orderDate}</p>
                     <p><strong>Total:</strong> {total} TK</p>
-                    <p><strong>Payment method:</strong> {paymentMethod}</p>
+                    
                 </div>
                 <p className="mt-2 text-gray-700">Pay cash upon delivery.</p>
 
@@ -92,6 +92,7 @@ const OrderConfirmation = () => {
                     </table>
                 </div>
             </div>
+                <Link className="btn btn-outline mt-4 btn-sm" to={'/'}>Back to Home</Link>
         </div>
     );
 };
