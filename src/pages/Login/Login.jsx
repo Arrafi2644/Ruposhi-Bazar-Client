@@ -48,7 +48,6 @@ const Login = () => {
           email: res?.user?.email,
           role: "user"
         }
-        console.log("gl ", userInfo);
         axiosPublic.post("/users", userInfo)
           .then(res => {
               toast.success("Login successfully!")

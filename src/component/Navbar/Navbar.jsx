@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { AiOutlineHome } from 'react-icons/ai';
-import { CiMenuFries } from 'react-icons/ci';
-import { IoCartOutline, IoMenuSharp } from 'react-icons/io5';
+import { AiFillPauseCircle, AiOutlineHome } from 'react-icons/ai';
+import { CiMenuFries, CiUser } from 'react-icons/ci';
+import { IoCartOutline, IoEllipsisHorizontalCircleOutline, IoMenuSharp } from 'react-icons/io5';
 import { MdCategory, MdOutlineAccountCircle, MdOutlineCategory } from 'react-icons/md';
-import { PiStorefront } from 'react-icons/pi';
+import { PiStorefront, PiUserCircle } from 'react-icons/pi';
 import { Link } from 'react-router';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
@@ -16,7 +16,7 @@ const Navbar = () => {
         toast.success("Logout successful!")
     }
 
-    
+
     return (
         <div className='sticky top-0 z-50 bg-yellow-900 text-white shadow-sm'>
 
@@ -43,13 +43,18 @@ const Navbar = () => {
                             <li ><Link to='/all-products'>All Products</Link></li>
                             <li className=''> {
                                 user ?
-                                    <div>
-                                        <Link to='/'>Hi <span>{user?.displayName}</span></Link>
+                                    <div className="dropdown">
+                                        <div tabIndex={0} role="button" className="text-right p-1.5 hover:bg-base-300 cursor-pointer rounded-md"><span>{user?.displayName}</span></div>
+                                        <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-36 -right-1 pr-0 top-7 shadow-sm text-gray-900">
+                                            <li className=''><Link to='/' >My Orders</Link></li>
+                                            <li className=''><button onClick={handleLogout}>Logout</button></li>
+
+                                        </ul>
                                     </div>
                                     : <Link to='/login'> Login</Link>
-                            } </li>
-                            { user && <button onClick={handleLogout} className="btn">Logout</button>
-                        }
+                            }
+                            </li>
+
                         </ul>
                         <ul className='menu menu-horizontal px-1 flex md:hidden items-center '>
                             <li><Link ><IoCartOutline size={24} />  <span className='hidden lg:block'>Cart</span></Link></li>
@@ -59,10 +64,22 @@ const Navbar = () => {
                                 <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-36 -right-1 pr-0 top-7 shadow-sm text-gray-900">
                                     <li className=''><Link to='/' >Home</Link></li>
                                     <li className=''><Link to='/all-products'>All Products</Link></li>
-                                    <li className=''> {
+                                    {/* <li className=''> {
                                         user ?
                                             <Link to='/'>{user?.displayNamename}</Link> : <Link to='/login'> Login</Link>
-                                    } </li>
+                                    } </li> */}
+                                </ul>
+                            </div>
+                            <div className="dropdown">
+                                <div tabIndex={0} role="button" className="text-right p-1.5 hover:bg-base-300 cursor-pointer rounded-md">{user ? <span className='border-2 rounded-full h-6 w-6 flex items-center justify-center '>{user?.displayName.slice(0, 1)}</span> : < PiUserCircle size={20} />}</div>
+                                <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-36 -right-1 pr-0 top-7 shadow-sm text-gray-900">
+                                    {
+                                        user ?
+                                            <div><li className=''><Link to='/' >My Orders</Link></li>
+                                                <li className=''><button onClick={handleLogout}>Logout</button></li></div> :
+                                            <li className=''><Link to='/login' >Login</Link></li>
+
+                                    }
                                 </ul>
                             </div>
                         </ul>
