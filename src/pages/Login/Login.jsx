@@ -100,7 +100,7 @@ const Login = () => {
         <button type="submit" className="w-full bg-yellow-900 cursor-pointer text-white p-2 rounded">Login</button>
       </form>
       <div className="divider"></div>
-      <div><button onClick={handleLoginWithGoogle} className="btn btn-outline w-full flex items-center"><span><FcGoogle/></span> Login with google</button></div>
+      <div><button onClick={handleLoginWithGoogle} className="btn border-gray-300 btn-outline w-full flex items-center"><span><FcGoogle/></span> Login with google</button></div>
       <p className="text-center mt-4 font-medium">
         Don't have any account? <Link className="text-yellow-900" to="/signup">Signup</Link>
       </p>

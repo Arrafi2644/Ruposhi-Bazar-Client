@@ -140,7 +140,7 @@ const Signup = () => {
         <button type="submit" className="w-full cursor-pointer bg-yellow-900 text-white p-2 rounded">Register</button>
       </form>
       <div className="divider"></div>
-      <div><button onClick={handleLoginWithGoogle} className="btn btn-outline w-full flex items-center"><span><FcGoogle /></span> Login with google</button></div>
+      <div><button onClick={handleLoginWithGoogle} className="btn border-gray-300 btn-outline w-full flex items-center"><span><FcGoogle /></span> Login with google</button></div>
       <p className="text-center mt-4 font-medium">
         Already have an account? <Link className="text-yellow-900" to="/login">Login</Link>
       </p>
