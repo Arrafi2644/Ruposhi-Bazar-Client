@@ -1,36 +1,70 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import toast from "react-hot-toast";
 
 const OrderPage = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm({
+    const { register, handleSubmit, watch, formState: { errors } } = useForm({
         defaultValues: {
-            deliveryArea: "",
+            deliveryArea: "Inside Dhaka",
         },
     });
+
     const location = useLocation();
+    const { user } = useAuth();
     const productInfo = location?.state;
     const { product, quantity } = productInfo;
-    const [deliveryCharge, setDeliveryCharge] = useState(0);
+    const [deliveryCharge, setDeliveryCharge] = useState(80); // default for Inside Dhaka
     const [totalAmount, setTotalAmount] = useState(0);
     const discount = parseInt((product?.price * product?.discount) / 100 * quantity);
+    const axiosSecure = useAxiosSecure();
+    const navigate = useNavigate();
+
+    const deliveryArea = watch("deliveryArea");
 
     useEffect(() => {
-        setTotalAmount((product?.price * quantity + deliveryCharge) - discount);
-    }, [product, deliveryCharge]);
+        let charge = 0;
+        if (deliveryArea === "Inside Dhaka") charge = 80;
+        else if (deliveryArea === "Outside Dhaka") charge = 120;
+
+        setDeliveryCharge(charge);
+        setTotalAmount((product?.price * quantity + charge) - discount);
+    }, [deliveryArea, product, quantity, discount]);
 
     const onSubmit = (data) => {
-        console.log(data);
-        const deliveryLocation = data?.deliveryArea;
-        if (deliveryLocation === "Inside Dhaka") {
-            setDeliveryCharge(60);
-        } else {
-            setDeliveryCharge(120);
-        }
+        const orderInfo = {
+            customerName: data?.fullName,
+            customerEmail: user?.email,
+            customerPhone: data?.mobileNumber,
+            address: data?.fullAddress,
+            deliveryArea: data?.deliveryArea,
+            quantity: quantity,
+            deliveryCharge: deliveryCharge,
+            discountAmount: discount,
+            totalPayableAmount: totalAmount,
+            product: product,
+            status: "new",
+            paymentMethod: "Cash on delivery",
+            orderDate: new Date().toLocaleString("en-US", { timeZone: "Asia/Dhaka" })
+        };
+
+        axiosSecure.post('/orders', orderInfo)
+            .then(res => {
+                if (res?.data?.insertedId) {
+                    toast.success("Order successfully completed!");
+                    navigate('/order-confirmation', { state: orderInfo });
+                }
+            })
+            .catch(err => {
+                toast.error("Something went wrong! Try again.");
+                console.log(err);
+            });
     };
 
     const validateBangladeshiPhoneNumber = (value) => {
-        const phoneRegex = /^01[3-9]\d{8}$/; // Starts with 01, followed by 3-9, then 8 digits
+        const phoneRegex = /^01[3-9]\d{8}$/;
         return phoneRegex.test(value) || "Invalid phone number";
     };
 
@@ -51,21 +85,21 @@ const OrderPage = () => {
                     <div>
                         <label className="block text-sm font-medium mb-2">Mobile Number</label>
                         <input
-                            {...register("mobileNumber", { 
+                            {...register("mobileNumber", {
                                 required: "Please enter your phone number",
-                                validate: validateBangladeshiPhoneNumber 
-                              })}
+                                validate: validateBangladeshiPhoneNumber
+                            })}
                             className="w-full p-2 border border-gray-300 rounded"
                             placeholder="017xxxxxxxx"
                         />
-                        {errors.mobileNumber && <p className="text-red-500 text-sm mt-1">{errors.mobileNumber.message}</p>}          </div>
+                        {errors.mobileNumber && <p className="text-red-500 text-sm mt-1">{errors.mobileNumber.message}</p>}
+                    </div>
                     <div>
                         <label className="block text-sm font-medium mb-2">Delivery Area</label>
                         <div className="flex flex-col text-start">
                             <label className="border border-gray-300 p-2 w-full text-sm flex items-center gap-1">
                                 <input
                                     {...register("deliveryArea", { required: "Please select a delivery area" })}
-                                    className="border border-gray-400"
                                     type="radio"
                                     value="Inside Dhaka"
                                 />
@@ -127,7 +161,7 @@ const OrderPage = () => {
                             <tr className="border-gray-300">
                                 <td>Discount Amount :</td>
                                 <td></td>
-                                <td className="text-end">{parseInt((product?.price * product?.discount) / 100) * quantity}Tk</td>
+                                <td className="text-end">{discount}Tk</td>
                             </tr>
                             <tr className="border-gray-300">
                                 <td>Payable Amount :</td>

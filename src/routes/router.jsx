@@ -9,6 +9,7 @@ import AllProducts from "../pages/AllProducts/AllProducts";
 import PrivateRoute from "../PrivateRoute";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import MyOrders from "../pages/Dashboard/MyOrders/MyOrders";
+import OrderConfirmation from "../pages/OrderConfirmation/OrderConfirmation";
 
 
 const router = createBrowserRouter([
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
         {
           path: "all-products",
           element: <AllProducts/>
+        },
+        {
+         path: "order-confirmation",
+         element: <OrderConfirmation/>
         },
         {
           path: "dashboard",

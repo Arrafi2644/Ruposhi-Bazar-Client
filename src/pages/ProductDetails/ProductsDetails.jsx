@@ -97,7 +97,7 @@ const ProductsDetails = () => {
                     <div className="border border-dotted border-yellow-900 p-4 space-y-2">
                         <div className="flex items-center gap-2">
                             <FaCheck className="text-black" />
-                            <p>Order today and receive it within 01 - 02 days</p>
+                            <p>Order today and receive it within 03 - 05 days</p>
                         </div>
                         <div className="flex items-center gap-2">
                             <FaThumbsUp className="text-black" />
@@ -109,7 +109,7 @@ const ProductsDetails = () => {
                         </div>
                         <div className="flex items-center gap-2">
                             <FaTruck className="text-black" />
-                            <p>Delivery Charge Inside Dhaka 60 TK</p>
+                            <p>Delivery Charge Inside Dhaka 80 TK</p>
                         </div>
                         <div className="flex items-center gap-2">
                             <FaTruck className="text-black" />
