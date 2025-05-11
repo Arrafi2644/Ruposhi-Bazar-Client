@@ -50,7 +50,7 @@ const ManageOrders = () => {
 
     return (
         <div>
-            <h2 className='mb-4 text-xl text-center font-semibold'>All Orders</h2>
+            <h2 className='mb-4 text-xl text-center font-semibold'>Manage Orders</h2>
  
             <div className='mt-6'>
                 <div className="overflow-x-auto">

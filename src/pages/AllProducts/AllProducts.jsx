@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { TbCurrencyTaka } from 'react-icons/tb';
 import { Link } from 'react-router-dom';
+import useProducts from '../../hooks/useProducts';
 
 const AllProducts = () => {
-    const [products, setProducts] = useState([])
-
-    useEffect(() => {
-        fetch("products.json")
-            .then(res => res.json())
-            .then(data => setProducts(data))
-            .catch(error => console.log(error))
-    }, [])
+  const [products, isLoading, refetch] = useProducts([])
     return (
         <div className='my-6'>
             <h2 className='text-lg md:text-xl pb-4 font-semibold '>All Products ({products?.length})</h2>

@@ -1,0 +1,86 @@
+import React from 'react';
+import useProducts from '../../../hooks/useProducts';
+import { BiDotsVertical } from 'react-icons/bi';
+
+const ManageProducts = () => {
+    const [products, isLoading, refetch] = useProducts([])
+    console.log(products);
+
+    return (
+        <div>
+            <h2 className='mb-4 text-xl text-center font-semibold'>Manage Products</h2>
+
+            <div className='mt-6'>
+                <div className="overflow-x-auto">
+                    <table className="table font-medium">
+                        {/* head */}
+                        <thead>
+                            <tr className='border border-gray-300'>
+                                <th>Order Id</th>
+                                <th>Product</th>
+                                <th>Brand</th>
+                                <th>Price</th>
+                                <th>Discount</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody className='border border-gray-300 text-xs xl:text-sm'>
+
+                            {
+                                products.slice().reverse().map((product, index) => <tr className='border-b border-gray-300 justify-start' key={product._id}>
+                                    <td>{product?._id.slice(-5)}</td>
+                                    <td>{product?.title || "N/A"} </td>
+                                    <td>{product?.brand || "N/A"}</td>
+                                    <td>{product?.price || "N/A"} Tk</td>
+                                    <td>{product?.discount || "N/A"}%</td>
+                                    <td>{product?.isStock ? "Stock" : "Out of stock"}</td>
+                                  
+                                    {/* <td>
+                                        <span
+                                            className={`px-2 py-[2px] rounded-md ${order?.status === "New"
+                                                ? "bg-green-500 text-white"
+                                                : order?.status === "Processing"
+                                                    ? "bg-yellow-900 text-white"
+                                                    : order?.status === "Delivered"
+                                                        ? "bg-blue-500 text-white"
+                                                        : order?.status === "Canceled"
+                                                            ? "bg-red-700 text-white"
+                                                            : "bg-gray-500 text-white"
+                                                }`}
+                                        >
+                                            {order?.status}
+                                        </span>
+                                    </td> */}
+                                    <td>
+                                        <div
+                                            className={`dropdown `}
+                                        >
+                                            <div tabIndex={0} className="text-right p-1.5 cursor-pointer rounded-md"><span className=' px-1 rounded-md flex '><BiDotsVertical size={20} /></span></div>
+                                            <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-36 -right-1 pr-0 top-7 shadow-sm text-gray-900">
+                                                {/* {
+                                                    product?.status === "Processing" && <li className=''><button onClick={() => handleDeliveredOrder(order?._id)}>Delivered</button></li>
+                                                }
+                                                {
+                                                    order?.status === "New" && <li className=''><button onClick={() => handleProcessingOrder(order._id)}>Processing</button></li>
+                                                    } */}
+                                                     <li className=''><button onClick={() => handleUpdateProduct(product?._id)}>Update</button></li>
+                                                     <li className=''><button onClick={() => handleDeleteProduct(product?._id)}>Delete</button></li>
+                                                     <li className=''><button onClick={() => handleStock(product?._id)}>Stock Out</button></li>
+
+                                            </ul>
+                                        </div>
+                                    </td>
+
+                                </tr>)
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default ManageProducts;

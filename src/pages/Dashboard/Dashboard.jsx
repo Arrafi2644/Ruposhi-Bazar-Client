@@ -19,6 +19,7 @@ const Dashboard = () => {
     const adminRoutes = <>
         <li className=' border-gray-300 border rounded-md'><NavLink to='/dashboard/manage-orders' >Manage Orders</NavLink></li>
         <li className=' border-gray-300 border rounded-md'><NavLink to='/dashboard/manage-users' >Manage Users</NavLink></li>
+        <li className=' border-gray-300 border rounded-md'><NavLink to='/dashboard/manage-products' >Manage Products</NavLink></li>
         {/* <li className='border-b border-gray-300 bottom-0'><NavLink to={"/"}>Profile</NavLink></li> */}
     </>
     return (
