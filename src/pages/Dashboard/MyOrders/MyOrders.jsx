@@ -12,6 +12,8 @@ const MyOrders = () => {
     const handleCancelOrder = (_id) => {
         console.log("cancel order ", _id);
 
+        const updatedStatus = "Canceled";
+
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -22,7 +24,7 @@ const MyOrders = () => {
             confirmButtonText: "Yes, cancel it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosSecure.patch(`/orders/${_id}`)
+                axiosSecure.patch(`/orders/${_id}`, { updatedStatus })
                     .then(res => {
                         // console.log(res);
                         if (res?.data?.modifiedCount > 0) {
@@ -72,9 +74,23 @@ const MyOrders = () => {
                                     </div>
                                     <div className='mt-2 space-x-1'>
 
-                                        <button className={`btn btn-xs cursor-default ${order?.status === "new"|'New' ? "bg-green-400 text-white" : "bg-red-700 text-white"}`}>{order?.status}</button>
+                                        <button
+                                            className={`btn btn-xs cursor-default rounded-md border-none ${order?.status === "New"
+                                                    ? "bg-green-500 text-white"
+                                                    : order?.status === "Processing"
+                                                        ? "bg-yellow-900 text-white"
+                                                        : order?.status === "Delivered"
+                                                            ? "bg-blue-500 text-white"
+                                                            : order?.status === "Canceled"
+                                                                ? "bg-red-700 text-white"
+                                                                : "bg-gray-500 text-white"
+                                                }`}
+                                        >
+                                            {order?.status}
+                                        </button>
+
                                         {/* <button className="btn btn-xs">View Order</button> */}
-                                        {order?.status === "new" && <button onClick={() => handleCancelOrder(order?._id)} className="btn btn-xs">Cancel Order</button>}
+                                        {(order?.status === "New" || order?.status === "Processing") && <button onClick={() => handleCancelOrder(order?._id)} className="btn btn-xs">Cancel Order</button>}
                                     </div>
                                 </div>
 

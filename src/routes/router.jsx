@@ -10,6 +10,7 @@ import PrivateRoute from "../PrivateRoute";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import MyOrders from "../pages/Dashboard/MyOrders/MyOrders";
 import OrderConfirmation from "../pages/OrderConfirmation/OrderConfirmation";
+import AllOrders from "../pages/Dashboard/AllOrders/AllOrders";
 
 
 const router = createBrowserRouter([
@@ -51,8 +52,13 @@ const router = createBrowserRouter([
           children: [
             {
               path: "my-orders",
-              element: <MyOrders/>
+              element: <PrivateRoute><MyOrders/></PrivateRoute>
+            },
+            {
+              path: "all-orders",
+              element: <PrivateRoute><AllOrders/></PrivateRoute>
             }
+
           ]
         }
       ]

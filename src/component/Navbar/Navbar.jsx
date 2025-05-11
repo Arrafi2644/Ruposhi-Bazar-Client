@@ -10,7 +10,8 @@ import toast from 'react-hot-toast';
 
 const Navbar = () => {
     const { user, logoutUser } = useContext(AuthContext)
-    console.log(user?.displayName);
+    // console.log(user?.displayName);
+    const isAdmin = true;
     const handleLogout = () => {
         logoutUser();
         toast.success("Logout successful!")
@@ -46,7 +47,12 @@ const Navbar = () => {
                                     <div className="dropdown">
                                         <div tabIndex={0} className="text-right p-1.5 cursor-pointer rounded-md"><span className=' px-1 rounded-md flex '><PiUserCircle size={20} /> {user?.displayName.split(" ")[0]}</span></div>
                                         <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-36 -right-1 pr-0 top-7 shadow-sm text-gray-900">
-                                            <li className=''><Link to='/dashboard/my-orders' >Dashboard</Link></li>
+
+                                            <li className=''>
+                                                {
+                                                    isAdmin ? <Link to='/dashboard/all-orders' >Dashboard</Link> : <Link to='/dashboard/my-orders' >Dashboard</Link>
+                                                }
+                                            </li>
                                             <li className=''><button onClick={handleLogout}>Logout</button></li>
                                         </ul>
                                     </div>
