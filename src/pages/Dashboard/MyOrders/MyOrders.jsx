@@ -60,7 +60,7 @@ const MyOrders = () => {
                     orders.length > 0 ? (
 
 
-                        orders.map(order => (<Link className='' key={order._id}>
+                        orders.slice().reverse().map(order => (<Link className='' key={order._id}>
                             <div className='border border-gray-300 p-2 flex md:flex-row gap-2 font-medium'>
                                 <img className='h-20 w-20 object-center object-cover' src={order?.product?.images[0]} alt="" />
                                 <div>
@@ -72,7 +72,7 @@ const MyOrders = () => {
                                     </div>
                                     <div className='mt-2 space-x-1'>
 
-                                        <button className={`btn btn-xs cursor-default ${order?.status === "new" ? "bg-green-400 text-white" : "bg-red-700 text-white"}`}>{order?.status}</button>
+                                        <button className={`btn btn-xs cursor-default ${order?.status === "new"|'New' ? "bg-green-400 text-white" : "bg-red-700 text-white"}`}>{order?.status}</button>
                                         {/* <button className="btn btn-xs">View Order</button> */}
                                         {order?.status === "new" && <button onClick={() => handleCancelOrder(order?._id)} className="btn btn-xs">Cancel Order</button>}
                                     </div>
