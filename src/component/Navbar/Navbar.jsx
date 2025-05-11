@@ -7,16 +7,20 @@ import { PiStorefront, PiUserCircle } from 'react-icons/pi';
 import { Link } from 'react-router';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
+import useAdmin from '../../hooks/useAdmin';
 
 const Navbar = () => {
     const { user, logoutUser } = useContext(AuthContext)
     // console.log(user?.displayName);
-    const isAdmin = true;
+    // const isAdmin = true;
     const handleLogout = () => {
         logoutUser();
         toast.success("Logout successful!")
     }
 
+    const [isAdmin, adminPending, isLoading] = useAdmin()
+
+    console.log("is Admin  ", user?.email, isAdmin);
 
     return (
         <div className='sticky top-0 z-50 bg-yellow-900 text-white shadow-sm'>
@@ -50,7 +54,7 @@ const Navbar = () => {
 
                                             <li className=''>
                                                 {
-                                                    isAdmin ? <Link to='/dashboard/all-orders' >Dashboard</Link> : <Link to='/dashboard/my-orders' >Dashboard</Link>
+                                                    isAdmin ? <Link to='/dashboard/manage-orders' >Dashboard</Link> : <Link to='/dashboard/my-orders' >Dashboard</Link>
                                                 }
                                             </li>
                                             <li className=''><button onClick={handleLogout}>Logout</button></li>

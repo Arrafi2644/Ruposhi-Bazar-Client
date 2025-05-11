@@ -10,7 +10,8 @@ import PrivateRoute from "../PrivateRoute";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import MyOrders from "../pages/Dashboard/MyOrders/MyOrders";
 import OrderConfirmation from "../pages/OrderConfirmation/OrderConfirmation";
-import AllOrders from "../pages/Dashboard/AllOrders/AllOrders";
+import ManageOrders from "../pages/Dashboard/ManageOrders/ManageOrders";
+import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 
 
 const router = createBrowserRouter([
@@ -55,8 +56,12 @@ const router = createBrowserRouter([
               element: <PrivateRoute><MyOrders/></PrivateRoute>
             },
             {
-              path: "all-orders",
-              element: <PrivateRoute><AllOrders/></PrivateRoute>
+              path: "manage-orders",
+              element: <PrivateRoute><ManageOrders/></PrivateRoute>
+            },
+            {
+              path: "manage-users",
+              element: <PrivateRoute><ManageUsers/></PrivateRoute>
             }
 
           ]

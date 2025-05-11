@@ -4,7 +4,7 @@ import { BiDotsVertical } from 'react-icons/bi';
 import toast from 'react-hot-toast';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
-const AllOrders = () => {
+const ManageOrders = () => {
     const [allOrders, isLoading, refetch] = useAllOrders();
     const axiosSecure = useAxiosSecure();
     console.log(allOrders);
@@ -37,9 +37,8 @@ const AllOrders = () => {
                 // console.log(res);
                 if (res?.data?.modifiedCount > 0) {
                     // console.log(totalPriceRefetch);
-                    toast.success("Order processing now!")
+                    toast.success("Order Delivered!")
                     refetch()
-
                 }
 
             })
@@ -52,14 +51,14 @@ const AllOrders = () => {
     return (
         <div>
             <h2 className='mb-4 text-xl text-center font-semibold'>All Orders</h2>
-
+ 
             <div className='mt-6'>
                 <div className="overflow-x-auto">
                     <table className="table font-medium">
                         {/* head */}
                         <thead>
                             <tr className='border border-gray-300'>
-                                <th>Sl.</th>
+                                <th>Order Id</th>
                                 <th>Product</th>
                                 <th>Date</th>
                                 <th>Customer Name</th>
@@ -70,11 +69,11 @@ const AllOrders = () => {
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody className='border border-gray-300 text-xs'>
+                        <tbody className='border border-gray-300 text-xs xl:text-sm'>
 
                             {
                                 allOrders.slice().reverse().map((order, index) => <tr className='border-b border-gray-300 justify-start' key={order._id}>
-                                    <td>{index + 1}</td>
+                                    <td>{order?._id.slice(-5)}</td>
                                     <td>{order?.product?.title || "N/A"} </td>
                                     <td>{order?.orderDate || "N/A"}</td>
                                     <td>{order?.customerName || "N/A"}</td>
@@ -125,4 +124,4 @@ const AllOrders = () => {
     );
 };
 
-export default AllOrders;
+export default ManageOrders;
