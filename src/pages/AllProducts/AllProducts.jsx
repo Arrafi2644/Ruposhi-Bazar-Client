@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { TbCurrencyTaka } from 'react-icons/tb';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import useProducts from '../../hooks/useProducts';
 
 const AllProducts = () => {
-  const [products, isLoading, refetch] = useProducts([])
+    const location = useLocation();
+    const category = location?.state;
+    const [products, isLoading, refetch] = useProducts({category})
+//   console.log(category);
     return (
         <div className='my-6'>
-            <h2 className='text-lg md:text-xl pb-4 font-semibold '>All Products ({products?.length})</h2>
+            <h2 className='text-lg md:text-xl pb-4 font-semibold '>Total Products ({products?.length})</h2>
             <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4'>
                 {products.map((product) => (
                     <div key={product?._id} className="h-full">

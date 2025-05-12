@@ -15,7 +15,7 @@ const [categories, isLoading, refetch] = useCategories();
             {/* section content */}
             <div className='flex flex-wrap gap-1 justify-between md:justify-start '>
                 {
-                    categories.map(category => <Link  key={category._id} className=' p-2 w-28 md:w-32 flex items-center flex-col border hover:shadow-md hover:border border-gray-200 bg-white'>
+                    categories.map(category => <Link to={"/all-products"} state={category?.name} key={category._id} className=' p-2 w-28 md:w-32 flex items-center flex-col border hover:shadow-md hover:border border-gray-200 bg-white'>
                         <img className='w-full h-20 object-cover' src={category.image} alt={category.name} />
                         <h3 className='text-center mt-1'>{category.name}</h3>
                     </Link>)

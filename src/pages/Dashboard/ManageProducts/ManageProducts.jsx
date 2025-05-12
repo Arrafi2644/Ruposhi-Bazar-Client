@@ -2,11 +2,48 @@ import React from 'react';
 import useProducts from '../../../hooks/useProducts';
 import { BiDotsVertical } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
+import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import toast from 'react-hot-toast';
 
 const ManageProducts = () => {
     const [products, isLoading, refetch] = useProducts([])
     console.log(products);
+    const axiosSecure = useAxiosSecure();
+    const handleStock = (_id) => {
+        const updatedStockStatus = false;
+        axiosSecure.patch(`/products/${_id}`, { updatedStockStatus })
+            .then(res => {
+                // console.log(res);
+                if (res?.data?.modifiedCount > 0) {
+                    // console.log(totalPriceRefetch);
+                    toast.success("Stock status changed successfully!")
+                    refetch()
+                }
 
+            })
+            .catch(err => {
+                // console.log(err);
+                toast.error("Something went wrong!")
+            })
+    }
+
+      const handleStockOut = (_id) => {
+        const updatedStockStatus = true;
+        axiosSecure.patch(`/products/${_id}`, { updatedStockStatus })
+            .then(res => {
+                // console.log(res);
+                if (res?.data?.modifiedCount > 0) {
+                    // console.log(totalPriceRefetch);
+                    toast.success("Stock status changed successfully!")
+                    refetch()
+                }
+
+            })
+            .catch(err => {
+                // console.log(err);
+                toast.error("Something went wrong!")
+            })
+    }
     return (
         <div>
             <h2 className='mb-4 text-xl text-center font-semibold'>Manage Products</h2>
@@ -67,7 +104,14 @@ const ManageProducts = () => {
                                                     } */}
                                                 <li className=''><Link to={'/dashboard/update-product'} state={{ product, id: product._id }}><button>Update</button></Link></li>
                                                 <li className=''><button onClick={() => handleDeleteProduct(product?._id)}>Delete</button></li>
-                                                <li className=''><button onClick={() => handleStock(product?._id)}>Stock Out</button></li>
+                                                <li className=''>
+                                                    {
+                                                        product?.isStock ?
+                                                        <button onClick={() => handleStock(product?._id)}>Stock Out</button>
+                                                       : <button onClick={() => handleStockOut(product?._id)}>Stock</button>
+                                                         
+                                                    }
+                                                </li>
 
                                             </ul>
                                         </div>

@@ -16,6 +16,8 @@ import ManageProducts from "../pages/Dashboard/ManageProducts/ManageProducts";
 import AddProductPage from "../pages/AddProductPage/AddProductPage";
 import UpdateProductPage from "../pages/Dashboard/UpdateProductPage/UpdateProductPage";
 import ManageCategory from "../pages/Dashboard/ManageCategory/ManageCategory";
+import AddCategory from "../pages/Dashboard/AddCategory/AddCategory";
+import UpdateCategory from "../pages/Dashboard/UpdateCategory/UpdateCategory";
 
 
 const router = createBrowserRouter([
@@ -82,6 +84,14 @@ const router = createBrowserRouter([
           {
             path: "manage-category",
             element: <PrivateRoute><ManageCategory/></PrivateRoute>
+          },
+          {
+            path: "add-category",
+            element: <PrivateRoute><AddCategory/></PrivateRoute>
+          },
+          {
+            path: "update-category",
+            element: <PrivateRoute><UpdateCategory/></PrivateRoute>
           }
 
         ]

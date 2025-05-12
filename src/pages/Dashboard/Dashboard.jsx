@@ -22,6 +22,7 @@ const Dashboard = () => {
         <li className=' border-gray-300 border rounded-md'><NavLink to='/dashboard/manage-products' >Manage Products</NavLink></li>
         <li className=' border-gray-300 border rounded-md'><NavLink to='/dashboard/add-product' >Add Product</NavLink></li>
         <li className=' border-gray-300 border rounded-md'><NavLink to='/dashboard/manage-category' >Manage Category</NavLink></li>
+        <li className=' border-gray-300 border rounded-md'><NavLink to='/dashboard/add-category' >Add Category</NavLink></li>
     </>
     return (
         <div className='my-6 min-h-[500px] grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-6 '>

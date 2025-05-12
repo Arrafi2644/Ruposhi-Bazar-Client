@@ -80,8 +80,8 @@ const AddProductPage = () => {
     };
 
     return (
-        <div className="w-full p-6 bg-white rounded font-medium">
-            <h2 className="text-2xl font-bold mb-4 text-center">Add New Product</h2>
+        <div className="w-full p-2 bg-white rounded font-medium">
+            <h2 className="text-xl font-semibold mb-4 text-center">Add New Product</h2>
             <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
                 {/* Product Name */}

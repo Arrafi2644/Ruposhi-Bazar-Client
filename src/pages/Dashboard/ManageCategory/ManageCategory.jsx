@@ -2,14 +2,14 @@ import React from 'react';
 import useProducts from '../../../hooks/useProducts';
 import { BiDotsVertical } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
+import useCategories from '../../../hooks/useCategories';
 
 const ManageCategory = () => {
-    const [products, isLoading, refetch] = useProducts([])
-    console.log(products);
+    const [categories, isLoading, refetch] = useCategories()
 
     return (
         <div>
-            <h2 className='mb-4 text-xl text-center font-semibold'>Manage Products</h2>
+            <h2 className='mb-4 text-xl text-center font-semibold'>Manage Category</h2>
 
             <div className='mt-6'>
                 <div className="overflow-x-auto">
@@ -18,6 +18,7 @@ const ManageCategory = () => {
                         <thead>
                             <tr className='border border-gray-300'>
                                 <th>Sl.</th>
+                                <th>Category Image</th>
                                 <th>Category</th>
                                 <th>Action</th>
                             </tr>
@@ -25,9 +26,12 @@ const ManageCategory = () => {
                         <tbody className='border border-gray-300 text-xs xl:text-sm'>
 
                             {
-                                products.slice().reverse().map((product, index) => <tr className='border-b border-gray-300 justify-start' key={product._id}>
+                                categories.slice().reverse().map((category, index) => <tr className='border-b border-gray-300 justify-start' key={category._id}>
                                     <td>{index + 1}</td>
-                                    <td>{product?.title || "N/A"} </td>
+                                    <td>
+                                        <img className='h-12 w-20 object-center object-cover' src={category?.image} alt="" />
+                                    </td>
+                                    <td>{category.name || "N/A"} </td>
         
                                     {/* <td>
                                         <span
@@ -57,9 +61,8 @@ const ManageCategory = () => {
                                                 {
                                                     order?.status === "New" && <li className=''><button onClick={() => handleProcessingOrder(order._id)}>Processing</button></li>
                                                     } */}
-                                                <li className=''><Link to={'/dashboard/update-product'} state={{ product, id: product._id }}><button>Update</button></Link></li>
-                                                <li className=''><button onClick={() => handleDeleteProduct(product?._id)}>Delete</button></li>
-                                                <li className=''><button onClick={() => handleStock(product?._id)}>Stock Out</button></li>
+                                                <li className=''><Link to={'/dashboard/update-category'} state={{ category, id: category._id }}><button>Update</button></Link></li>
+                                                <li className=''><button onClick={() => handleDeleteProduct(category?._id)}>Delete</button></li>
 
                                             </ul>
                                         </div>
