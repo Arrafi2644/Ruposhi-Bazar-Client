@@ -13,6 +13,7 @@ import OrderConfirmation from "../pages/OrderConfirmation/OrderConfirmation";
 import ManageOrders from "../pages/Dashboard/ManageOrders/ManageOrders";
 import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 import ManageProducts from "../pages/Dashboard/ManageProducts/ManageProducts";
+import AddProductPage from "../pages/AddProductPage/AddProductPage";
 
 
 const router = createBrowserRouter([
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
             {
               path: "manage-products",
               element: <PrivateRoute><ManageProducts/></PrivateRoute>
+            },
+            {
+              path: "add-product",
+              element: <PrivateRoute><AddProductPage/></PrivateRoute>
             }
 
           ]
