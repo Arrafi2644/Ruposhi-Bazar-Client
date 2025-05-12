@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router';
+import useCategories from '../../hooks/useCategories';
 
 const Categories = () => {
-    const [categories, setCategories] = useState([])
-
-    useEffect(() => {
-        fetch("categories.json")
-            .then(res => res.json())
-            .then(data => setCategories(data))
-            .catch(error => console.log(error))
-    }, [])
+const [categories, isLoading, refetch] = useCategories();
 
     // console.log("Categories are ", categories);
     return (

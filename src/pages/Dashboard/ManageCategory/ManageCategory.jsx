@@ -3,7 +3,7 @@ import useProducts from '../../../hooks/useProducts';
 import { BiDotsVertical } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 
-const ManageProducts = () => {
+const ManageCategory = () => {
     const [products, isLoading, refetch] = useProducts([])
     console.log(products);
 
@@ -17,12 +17,8 @@ const ManageProducts = () => {
                         {/* head */}
                         <thead>
                             <tr className='border border-gray-300'>
-                                <th>Order Id</th>
-                                <th>Product</th>
-                                <th>Brand</th>
-                                <th>Price</th>
-                                <th>Discount</th>
-                                <th>Status</th>
+                                <th>Sl.</th>
+                                <th>Category</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -30,13 +26,9 @@ const ManageProducts = () => {
 
                             {
                                 products.slice().reverse().map((product, index) => <tr className='border-b border-gray-300 justify-start' key={product._id}>
-                                    <td>{product?._id.slice(-5)}</td>
+                                    <td>{index + 1}</td>
                                     <td>{product?.title || "N/A"} </td>
-                                    <td>{product?.brand || "N/A"}</td>
-                                    <td>{product?.price || "N/A"} Tk</td>
-                                    <td>{product?.discount || "N/A"}%</td>
-                                    <td>{product?.isStock ? "Stock" : "Out of stock"}</td>
-
+        
                                     {/* <td>
                                         <span
                                             className={`px-2 py-[2px] rounded-md ${order?.status === "New"
@@ -84,4 +76,4 @@ const ManageProducts = () => {
     );
 };
 
-export default ManageProducts;
+export default ManageCategory;

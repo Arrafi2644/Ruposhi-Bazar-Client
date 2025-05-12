@@ -42,6 +42,7 @@ const SectionSlider = ({ products }) => {
       },
     ],
   };
+  
 
   return (
     <div className="slider-container">

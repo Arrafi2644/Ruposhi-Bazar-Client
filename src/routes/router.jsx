@@ -14,70 +14,80 @@ import ManageOrders from "../pages/Dashboard/ManageOrders/ManageOrders";
 import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 import ManageProducts from "../pages/Dashboard/ManageProducts/ManageProducts";
 import AddProductPage from "../pages/AddProductPage/AddProductPage";
+import UpdateProductPage from "../pages/Dashboard/UpdateProductPage/UpdateProductPage";
+import ManageCategory from "../pages/Dashboard/ManageCategory/ManageCategory";
 
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <MainLayout></MainLayout>,
-      children: [
-        {
-            path: "/",
-            element: <Home />
-        },
-        {
-          path: "/product/:id",
-          element: <ProductsDetails/>
-        },
-        {
-          path: 'order-page',
-          element: <PrivateRoute><OrderPage/></PrivateRoute>
-        },
-        {
-          path: "signup",
-          element: <Signup/>
-        },
-        {
-          path: "login",
-          element: <Login />
-        },
-        {
-          path: "all-products",
-          element: <AllProducts/>
-        },
-        {
-         path: "order-confirmation",
-         element: <OrderConfirmation/>
-        },
-        {
-          path: "dashboard",
-          element:<PrivateRoute> <Dashboard/></PrivateRoute>,
-          children: [
-            {
-              path: "my-orders",
-              element: <PrivateRoute><MyOrders/></PrivateRoute>
-            },
-            {
-              path: "manage-orders",
-              element: <PrivateRoute><ManageOrders/></PrivateRoute>
-            },
-            {
-              path: "manage-users",
-              element: <PrivateRoute><ManageUsers/></PrivateRoute>
-            },
-            {
-              path: "manage-products",
-              element: <PrivateRoute><ManageProducts/></PrivateRoute>
-            },
-            {
-              path: "add-product",
-              element: <PrivateRoute><AddProductPage/></PrivateRoute>
-            }
+  {
+    path: "/",
+    element: <MainLayout></MainLayout>,
+    children: [
+      {
+        path: "/",
+        element: <Home />
+      },
+      {
+        path: "/product/:id",
+        element: <ProductsDetails />
+      },
+      {
+        path: 'order-page',
+        element: <PrivateRoute><OrderPage /></PrivateRoute>
+      },
+      {
+        path: "signup",
+        element: <Signup />
+      },
+      {
+        path: "login",
+        element: <Login />
+      },
+      {
+        path: "all-products",
+        element: <AllProducts />
+      },
+      {
+        path: "order-confirmation",
+        element: <OrderConfirmation />
+      },
+      {
+        path: "dashboard",
+        element: <PrivateRoute> <Dashboard /></PrivateRoute>,
+        children: [
+          {
+            path: "my-orders",
+            element: <PrivateRoute><MyOrders /></PrivateRoute>
+          },
+          {
+            path: "manage-orders",
+            element: <PrivateRoute><ManageOrders /></PrivateRoute>
+          },
+          {
+            path: "manage-users",
+            element: <PrivateRoute><ManageUsers /></PrivateRoute>
+          },
+          {
+            path: "manage-products",
+            element: <PrivateRoute><ManageProducts /></PrivateRoute>
+          },
+          {
+            path: "add-product",
+            element: <PrivateRoute><AddProductPage /></PrivateRoute>
+          },
+          {
+            path: "update-product",
+            element: <PrivateRoute><UpdateProductPage /></PrivateRoute>
+          },
+          {
+            path: "manage-category",
+            element: <PrivateRoute><ManageCategory/></PrivateRoute>
+          }
 
-          ]
-        }
-      ]
-    },
-  ]);
+        ]
+      }
+    ]
+  },
+]);
 
-  export default router;
+export default router;
