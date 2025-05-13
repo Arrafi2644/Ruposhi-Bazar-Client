@@ -10,7 +10,7 @@ const ProductsDetails = () => {
     const product = location?.state;
     const [productImage, setProductImage] = useState(0)
     const [quantityCount, setQuantityCount] = useState(1);
- 
+
     const handleDecrease = () => {
         if (quantityCount > 1) {
             setQuantityCount(prev => prev - 1);
@@ -24,7 +24,7 @@ const ProductsDetails = () => {
     const productInfo = {
         product,
         quantity: quantityCount
-        
+
     }
     return (
         <div className='mt-6 font-medium'>
@@ -115,7 +115,7 @@ const ProductsDetails = () => {
                             <FaTruck className="text-black" />
                             <p>Delivery Charge Outside Dhaka 120 TK</p>
                         </div>
-                       
+
                     </div>
 
                     {/* Contact Section */}
@@ -123,10 +123,56 @@ const ProductsDetails = () => {
                         <p>Have question about this product? please call</p>
                         <div className="flex items-center gap-2">
                             <FaPhoneAlt className="text-yellow-900" />
-                            <span className="text-yellow-900 font-medium">01751166818</span>
+                            <span className="text-yellow-900 font-medium">+8801990-835127</span>
                         </div>
                     </div>
                 </div>
+            </div>
+            {/* Product details  */}
+            <div className='mt-6'>
+                <h2 className='text-xl md:text-2xl font-semibold'>Product details for {product?.title}</h2>
+                <p>Product Type: {product?.title}</p>
+                <p>Brand: {product?.brand}</p>
+                <p>Colors: {product?.colors?.map((color, index) => <span className='' key={index}>{color}, </span>)}</p>
+                {/* <p>Features: {product?.features?.map(color => <span>{color}, </span>)}</p> */}
+
+
+                {product?.specification && typeof product?.specification === "string" ? (
+                    <div>
+                        <p>Specifications:</p>
+                        <ul className="list-disc pl-5 font-normal">
+                            {product.specification
+                                .split(",")
+                                .map((spec, index) => (
+                                    <li key={index}>{spec.trim()}</li>
+                                ))}
+                        </ul>
+                    </div>
+                ) : (
+                    <p>No specifications available.</p>
+                )}
+
+
+
+
+                {product?.features && typeof product?.features === "string" ? (
+                    <div>
+                        <p>Features:</p>
+                        <ul className="list-disc pl-5 font-normal">
+                            {product.features
+                                .split(",")
+                                .map((feature, index) => (
+                                    <li key={index}>{feature.trim()}</li>
+                                ))}
+                        </ul>
+                    </div>
+                ) : (
+                    <p>No features available.</p>
+                )}
+
+
+
+                <p>Description: {product?.description}</p>
             </div>
         </div>
 
