@@ -18,12 +18,14 @@ import UpdateProductPage from "../pages/Dashboard/UpdateProductPage/UpdateProduc
 import ManageCategory from "../pages/Dashboard/ManageCategory/ManageCategory";
 import AddCategory from "../pages/Dashboard/AddCategory/AddCategory";
 import UpdateCategory from "../pages/Dashboard/UpdateCategory/UpdateCategory";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage/>,
     children: [
       {
         path: "/",
