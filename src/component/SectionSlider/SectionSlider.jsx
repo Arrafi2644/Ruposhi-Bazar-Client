@@ -62,7 +62,7 @@ const SectionSlider = ({ products }) => {
       {showSlider && (
         <Slider {...settings}>
           {products.map((product) => (
-            <div key={product?._id} className="h-full px-2">
+            <div key={product?._id} className="h-full">
               <Link
                 to={`/product/${product?._id}`}
                 state={product}
