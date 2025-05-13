@@ -52,13 +52,13 @@ const SectionSlider = ({ products }) => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
-        },
+        }
       },
     ],
   };
 
   return (
-    <div className="w-full overflow-hidden px-2">
+    <div className="w-full overflow-hidden">
       {showSlider && (
         <Slider {...settings}>
           {products.map((product) => (
