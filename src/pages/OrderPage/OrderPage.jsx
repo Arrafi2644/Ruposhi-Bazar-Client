@@ -59,7 +59,7 @@ const OrderPage = () => {
             })
             .catch(err => {
                 toast.error("Something went wrong! Try again.");
-                console.log(err);
+                // console.log(err);
             });
     };
 

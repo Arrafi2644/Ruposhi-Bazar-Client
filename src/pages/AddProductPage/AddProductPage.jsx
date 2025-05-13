@@ -67,7 +67,7 @@ const AddProductPage = () => {
             features: data?.features
         };
 
-        console.log("final res", product);
+        // console.log("final res", product);
 
         axiosSecure.post('/products', product)
             .then(res => {
@@ -76,7 +76,7 @@ const AddProductPage = () => {
                 }
             })
             .catch(err => {
-                console.log(err);
+                // console.log(err);
                 toast.error("Something went wrong!")
             })
     };

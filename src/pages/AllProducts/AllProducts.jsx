@@ -5,9 +5,9 @@ import useProducts from '../../hooks/useProducts';
 
 const AllProducts = () => {
     const location = useLocation();
-    const category = location?.state;
+    const category = location?.state|| location?.pathname?.split("/")[2]
     const [products, isLoading, refetch] = useProducts({ category })
-      console.log(location);
+    //   console.log(location.pathname.split("/")[2]);
     return (
         <div className='my-6'>
             <h2 className='text-lg md:text-xl pb-4 font-semibold '>Total Products ({products?.length})</h2>

@@ -23,7 +23,7 @@ const AddCategory = () => {
 
         const imageFile1 = { image: data.image1[0] }
         
-        console.log("Add Category");
+        // console.log("Add Category");
 
         const res1 = await axiosPublic.post(imageHostingApi, imageFile1, {
             headers: {
@@ -31,7 +31,7 @@ const AddCategory = () => {
             }
         })
 
-        console.log("response", res1);
+        // console.log("response", res1);
 
         const imageUrl1 = res1?.data?.data?.display_url
 
@@ -40,7 +40,7 @@ const AddCategory = () => {
             image: await imageUrl1
         };
 
-        console.log("final res", category);
+        // console.log("final res", category);
 
         axiosSecure.post('/categories', category)
         .then(res => {
@@ -50,7 +50,7 @@ const AddCategory = () => {
             }
         })
         .catch(err => {
-            console.log(err);
+            // console.log(err);
             toast.error("Something went wrong!")
         })
     };

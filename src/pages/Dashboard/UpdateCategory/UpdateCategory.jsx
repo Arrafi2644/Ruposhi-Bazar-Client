@@ -18,12 +18,12 @@ const UpdateCategory = () => {
     const { user } = useAuth();
     const location = useLocation();
     const categoryInfo = location?.state;
-    console.log("product info", categoryInfo);
+    // console.log("product info", categoryInfo);
     const {
        _id, name, image, 
     } = categoryInfo?.category
 
-    console.log("Product id", categoryInfo);
+    // console.log("Product id", categoryInfo);
 
     const axiosPublic = useAxiosPublic();
     const axiosSecure = useAxiosSecure();
@@ -32,7 +32,7 @@ const UpdateCategory = () => {
 
         const imageFile1 = { image: data.image1[0] }
 
-        console.log("Add Category");
+        // console.log("Add Category");
 
         const res1 = await axiosPublic.post(imageHostingApi, imageFile1, {
             headers: {
@@ -40,7 +40,7 @@ const UpdateCategory = () => {
             }
         })
 
-        console.log("response", res1);
+        // console.log("response", res1);
 
         const imageUrl1 = res1?.data?.data?.display_url
 
@@ -49,9 +49,9 @@ const UpdateCategory = () => {
             image: await imageUrl1
         };
 
-        console.log("final res", category);
+        // console.log("final res", category);
 
-        console.log("final update", category);
+        // console.log("final update", category);
 
         axiosSecure.put(`/categories/${categoryInfo?.id}`, category)
             .then(res => {
@@ -61,7 +61,7 @@ const UpdateCategory = () => {
                 }
             })
             .catch(err => {
-                console.log(err);
+                // console.log(err);
                 toast.error("Something went wrong!")
             })
     };

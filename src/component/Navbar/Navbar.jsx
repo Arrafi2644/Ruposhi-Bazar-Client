@@ -21,7 +21,7 @@ const Navbar = () => {
     }
 
     const handleSearch = (value) => {
-        console.log(value);
+        // console.log(value);
         navigate('/all-products', {state: value})
     }
 

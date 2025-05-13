@@ -19,7 +19,7 @@ const UpdateProductPage = () => {
     const { user } = useAuth();
     const location = useLocation();
     const productInfo = location?.state;
-    console.log(productInfo);
+    // console.log(productInfo);
     const {
         _id,
         productName,
@@ -42,14 +42,14 @@ const UpdateProductPage = () => {
         features
     } = productInfo?.product;
 
-    console.log("Product id", productInfo?.id);
+    // console.log("Product id", productInfo?.id);
 
     const axiosPublic = useAxiosPublic();
     const axiosSecure = useAxiosSecure();
 
     const onSubmit = async (data) => {
 
-        console.log(data);
+        // console.log(data);
 
         const imageFile1 = { image: data.image1[0] }
         const imageFile2 = { image: data.image2[0] }
@@ -97,7 +97,7 @@ const UpdateProductPage = () => {
             features: data?.features
         };
 
-        console.log("final update", product);
+        // console.log("final update", product);
 
         axiosSecure.put(`/products/${productInfo?.id}`, product)
             .then(res => {
@@ -107,7 +107,7 @@ const UpdateProductPage = () => {
                 }
             })
             .catch(err => {
-                console.log(err);
+                // console.log(err);
                 toast.error("Something went wrong!")
             })
     };

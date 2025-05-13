@@ -9,7 +9,7 @@ const Signup = () => {
   const { signUpUser, updateUserProfile, googleLogin } = useAuth();
   const axiosPublic = useAxiosPublic()
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
   const from = location?.state;
   const product = location.state?.product;
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ const Signup = () => {
   }
 
   const onSubmit = (data) => {
-    console.log(data)
+    // console.log(data)
     const email = data.email;
     const name = data.name;
     const phone = data.mobileNo;
@@ -39,10 +39,10 @@ const Signup = () => {
 
     signUpUser(email, password)
       .then(res => {
-        console.log(res);
+        // console.log(res);
         updateUserProfile({ displayName: name, phoneNumber: phone })
           .then(res => {
-            console.log(res);
+            // console.log(res);
             // console.log("login success");
             const userInfo = {
               name,
@@ -52,24 +52,24 @@ const Signup = () => {
             }
             axiosPublic.post("/users", userInfo)
               .then(res => {
-                console.log(res);
+                // console.log(res);
                 toast.success("Registered successfully!")
                 navigate(from?.from ? from?.from : "/", { state: product })
 
               })
               .catch(err => {
-                console.log(err);
+                // console.log(err);
                 toast.error("Something went wrong!")
               })
 
 
           })
           .catch(err => {
-            console.log(err);
+            // console.log(err);
           })
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
         toast.error("Something went wrong!. Try again.")
       })
   }
@@ -79,7 +79,7 @@ const Signup = () => {
     googleLogin()
       .then(res => {
         // toast.success("Registered successfully!")
-        console.log(res);
+        // console.log(res);
         const userInfo = {
           name: res?.user?.displayName,
           email: res?.user?.email,
@@ -91,12 +91,12 @@ const Signup = () => {
             navigate(from?.from ? from?.from : "/", { state: product })
           })
           .catch(err => {
-            console.log(err);
+            // console.log(err);
             toast.error("Something went wrong!")
           })
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
         toast.error("Something went wrong")
       })
   }

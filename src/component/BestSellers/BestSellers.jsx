@@ -10,7 +10,7 @@ const BestSellers = () => {
         return b.total_sells - a.total_sells
     }).slice(0, 15)
 
-    console.log("best selling products", bestSellingProducts);
+    // console.log("best selling products", bestSellingProducts);
 
     return (
      

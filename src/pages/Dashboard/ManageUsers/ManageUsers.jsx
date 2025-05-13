@@ -8,7 +8,7 @@ const ManageUsers = () => {
 
     const [users, isLoading, refetch] = useUsers()
     const axiosSecure = useAxiosSecure();
-    console.log("users are", users);
+    // console.log("users are", users);
 
     const handleMakeAdmin = (_id) => {
         const updatedRole = "Admin"

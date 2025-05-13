@@ -10,7 +10,7 @@ const MyOrders = () => {
     const axiosSecure = useAxiosSecure();
 
     const handleCancelOrder = (_id) => {
-        console.log("cancel order ", _id);
+        // console.log("cancel order ", _id);
 
         const updatedStatus = "Canceled";
 

@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 
 const ManageProducts = () => {
     const [products, isLoading, refetch] = useProducts([])
-    console.log(products);
+    // console.log(products);
     const axiosSecure = useAxiosSecure();
     const handleStock = (_id) => {
         const updatedStockStatus = false;

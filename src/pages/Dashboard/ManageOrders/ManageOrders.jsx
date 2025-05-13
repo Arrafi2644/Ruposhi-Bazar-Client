@@ -7,10 +7,10 @@ import useAxiosSecure from '../../../hooks/useAxiosSecure';
 const ManageOrders = () => {
     const [allOrders, isLoading, refetch] = useAllOrders();
     const axiosSecure = useAxiosSecure();
-    console.log(allOrders);
+    // console.log(allOrders);
 
     const handleProcessingOrder = (_id) => {
-        console.log("processing order ", _id);
+        // console.log("processing order ", _id);
         const updatedStatus = "Processing"
         axiosSecure.patch(`/orders/${_id}`, { updatedStatus })
             .then(res => {
@@ -30,7 +30,7 @@ const ManageOrders = () => {
     }
 
     const handleDeliveredOrder = (_id) => {
-        console.log("delivered order ", _id);
+        // console.log("delivered order ", _id);
         const updatedStatus = "Delivered"
         axiosSecure.patch(`/orders/${_id}`, { updatedStatus })
             .then(res => {

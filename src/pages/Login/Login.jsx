@@ -28,17 +28,17 @@ const Login = () => {
       
    }
   const onSubmit = (data) => {
-   console.log(data); 
+  //  console.log(data); 
    const email = data?.email;
    const password = data?.password;
-   console.log({email, password});
+  //  console.log({email, password});
    loginUser(email, password)
    .then(res => {
     toast.success("Login successful!")
     navigate(from ? from?.from : "/", {state: product})
    })
    .catch(err => {
-    console.log(err);
+    // console.log(err);
     toast.error("Something went wrong!")
    })
   };
@@ -48,7 +48,7 @@ const Login = () => {
     googleLogin()
       .then(res => {
         // toast.success("Registered successfully!")
-        console.log(res);
+        // console.log(res);
         const userInfo = {
           name: res?.user?.displayName,
           email: res?.user?.email,
@@ -60,12 +60,12 @@ const Login = () => {
               navigate(from ? from?.from : "/", {state: product})
           })
           .catch(err => {
-            console.log(err);
+            // console.log(err);
             toast.error("Something went wrong!")
           })
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
         toast.error("Something went wrong")
       })
   }

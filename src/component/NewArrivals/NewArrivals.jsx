@@ -6,7 +6,7 @@ const NewArrivals = () => {
     const [products, isLoading, refetch] = useProducts([])
 
     const newProducts = [...products].reverse().slice(0, 15)
-    console.log(products);
+    // console.log(products);
 
     // console.log("Categories are ", categories);
     return (
