@@ -3,6 +3,7 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import toast from "react-hot-toast";
+import useCategories from "../../hooks/useCategories";
 
 const imageHostingKey = import.meta.env.VITE_image_hosting_key;
 const imageHostingApi = `https://api.imgbb.com/1/upload?key=${imageHostingKey}`
@@ -16,6 +17,7 @@ const AddProductPage = () => {
 
     const axiosPublic = useAxiosPublic();
     const axiosSecure = useAxiosSecure();
+    const [categories, isLoading, refetch] = useCategories();
 
     const onSubmit = async (data) => {
 
@@ -68,25 +70,25 @@ const AddProductPage = () => {
         console.log("final res", product);
 
         axiosSecure.post('/products', product)
-        .then(res => {
-            if(res?.data?.insertedId){
-                toast.success("Product added successfully!")
-            }
-        })
-        .catch(err => {
-            console.log(err);
-            toast.error("Something went wrong!")
-        })
+            .then(res => {
+                if (res?.data?.insertedId) {
+                    toast.success("Product added successfully!")
+                }
+            })
+            .catch(err => {
+                console.log(err);
+                toast.error("Something went wrong!")
+            })
     };
 
     return (
-        <div className="w-full p-2 bg-white rounded font-medium">
+        <div className="w-full p-2 bg-white text-gray-900 rounded font-medium">
             <h2 className="text-xl font-semibold mb-4 text-center">Add New Product</h2>
-            <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-900">
 
                 {/* Product Name */}
                 <div>
-                    <label className="label">Product Name</label>
+                    <label className="label text-gray-900">Product Name</label>
                     <input
                         type="text"
                         {...register("productName", { required: "Product name is required" })}
@@ -98,7 +100,7 @@ const AddProductPage = () => {
 
                 {/* Title */}
                 <div>
-                    <label className="label">Title</label>
+                    <label className="label text-gray-900">Title</label>
                     <input
                         type="text"
                         {...register("title", { required: "Title is required" })}
@@ -110,7 +112,7 @@ const AddProductPage = () => {
 
                 {/* Brand */}
                 <div>
-                    <label className="label">Brand</label>
+                    <label className="label text-gray-900">Brand</label>
                     <input
                         type="text"
                         {...register("brand", { required: "Brand is required" })}
@@ -122,7 +124,7 @@ const AddProductPage = () => {
 
                 {/* Model */}
                 <div>
-                    <label className="label">Model</label>
+                    <label className="label text-gray-900">Model</label>
                     <input
                         type="text"
                         {...register("model", { required: "Model is required" })}
@@ -134,7 +136,7 @@ const AddProductPage = () => {
 
                 {/* Price */}
                 <div>
-                    <label className="label">Price</label>
+                    <label className="label text-gray-900">Price</label>
                     <input
                         type="number"
                         step="0.01"
@@ -147,7 +149,7 @@ const AddProductPage = () => {
 
                 {/* Discount */}
                 <div>
-                    <label className="label">Discount (%)</label>
+                    <label className="label text-gray-900">Discount (%)</label>
                     <input
                         type="number"
                         {...register("discount", { required: "Discount is required" })}
@@ -159,7 +161,7 @@ const AddProductPage = () => {
 
                 {/* Category Dropdown */}
                 <div>
-                    <label className="label">Category</label>
+                    <label className="label text-gray-900">Category</label>
                     <select
                         {...register("category", {
                             validate: (value) => value !== "default" || "Please select a category"
@@ -168,18 +170,16 @@ const AddProductPage = () => {
                         className="select select-bordered w-full"
                     >
                         <option value="default" disabled>Select Category</option>
-                        <option value="medicine">Medicine</option>
-                        <option value="equipment">Equipment</option>
-                        <option value="supplement">Supplement</option>
-                        <option value="device">Medical Device</option>
-                        <option value="others">Others</option>
+                        {
+                            categories?.map(category => <option key={category._id} value={category?.name}>{category?.name}</option>)
+                        }
                     </select>
                     {errors.category && <p className="text-red-500 text-sm">{errors.category.message}</p>}
                 </div>
 
                 {/* Warranty Dropdown */}
                 <div>
-                    <label className="label">Warranty</label>
+                    <label className="label text-gray-900">Warranty</label>
                     <select
                         {...register("warranty", {
                             validate: (value) => value !== "default" || "Please select a warranty"
@@ -197,7 +197,7 @@ const AddProductPage = () => {
 
                 {/* Colors */}
                 <div>
-                    <label className="label">Colors (Comma separated)</label>
+                    <label className="label text-gray-900">Colors (Comma separated)</label>
                     <input
                         type="text"
                         {...register("colors", { required: "Colors are required" })}
@@ -207,9 +207,9 @@ const AddProductPage = () => {
                     {errors.colors && <p className="text-red-500 text-sm">{errors.colors.message}</p>}
                 </div>
 
-                  {/* Features */}
+                {/* Features */}
                 <div>
-                    <label className="label">Features (Comma separated)</label>
+                    <label className="label text-gray-900">Features (Comma separated)</label>
                     <input
                         type="text"
                         {...register("features")}
@@ -221,7 +221,7 @@ const AddProductPage = () => {
 
                 {/* Specification */}
                 <div>
-                    <label className="label">Specification (Comma separated)</label>
+                    <label className="label text-gray-900">Specification (Comma separated)</label>
                     <input
                         type="text"
                         {...register("specification")}
@@ -233,7 +233,7 @@ const AddProductPage = () => {
 
                 {/* Image 1 */}
                 <div>
-                    <label className="label">Image 1</label>
+                    <label className="label text-gray-900">Image 1</label>
                     <input
                         type="file"
                         {...register("image1", { required: "Image 1 is required" })}
@@ -245,7 +245,7 @@ const AddProductPage = () => {
 
                 {/* Image 2 */}
                 <div>
-                    <label className="label">Image 2</label>
+                    <label className="label text-gray-900">Image 2</label>
                     <input
                         type="file"
                         {...register("image2", { required: "Image 2 is required" })}
@@ -257,7 +257,7 @@ const AddProductPage = () => {
 
                 {/* Image 3 */}
                 <div>
-                    <label className="label">Image 3</label>
+                    <label className="label text-gray-900">Image 3</label>
                     <input
                         type="file"
                         {...register("image3", { required: "Image 3 is required" })}
@@ -269,7 +269,7 @@ const AddProductPage = () => {
 
                 {/* Description */}
                 <div className="md:col-span-2">
-                    <label className="label">Description</label>
+                    <label className="label text-gray-900">Description</label>
                     <textarea
                         {...register("description", { required: "Description is required" })}
                         className="textarea textarea-bordered w-full"

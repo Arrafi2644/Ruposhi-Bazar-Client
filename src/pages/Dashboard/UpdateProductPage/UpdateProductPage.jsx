@@ -119,7 +119,7 @@ const UpdateProductPage = () => {
 
                 {/* Product Name */}
                 <div>
-                    <label className="label">Product Name</label>
+                    <label className="label text-gray-900">Product Name</label>
                     <input
                         type="text"
                         defaultValue={productName}
@@ -132,7 +132,7 @@ const UpdateProductPage = () => {
 
                 {/* Title */}
                 <div>
-                    <label className="label">Title</label>
+                    <label className="label text-gray-900">Title</label>
                     <input
                     defaultValue={title}
                         type="text"
@@ -145,7 +145,7 @@ const UpdateProductPage = () => {
 
                 {/* Brand */}
                 <div>
-                    <label className="label">Brand</label>
+                    <label className="label text-gray-900">Brand</label>
                     <input
                     defaultValue={brand}
                         type="text"
@@ -158,7 +158,7 @@ const UpdateProductPage = () => {
 
                 {/* Model */}
                 <div>
-                    <label className="label">Model</label>
+                    <label className="label text-gray-900">Model</label>
                     <input
                     defaultValue={model}
                         type="text"
@@ -171,7 +171,7 @@ const UpdateProductPage = () => {
 
                 {/* Price */}
                 <div>
-                    <label className="label">Price</label>
+                    <label className="label text-gray-900">Price</label>
                     <input
                     defaultValue={price}
                         type="number"
@@ -185,7 +185,7 @@ const UpdateProductPage = () => {
 
                 {/* Discount */}
                 <div>
-                    <label className="label">Discount (%)</label>
+                    <label className="label text-gray-900">Discount (%)</label>
                     <input
                     defaultValue={discount}
                         type="number"
@@ -198,7 +198,7 @@ const UpdateProductPage = () => {
 
                 {/* Category Dropdown */}
                 <div>
-                    <label className="label">Category</label>
+                    <label className="label text-gray-900">Category</label>
                     <select
                         {...register("category", {
                             validate: (value) => value !== "default" || "Please select a category"
@@ -218,7 +218,7 @@ const UpdateProductPage = () => {
 
                 {/* Warranty Dropdown */}
                 <div>
-                    <label className="label">Warranty</label>
+                    <label className="label text-gray-900">Warranty</label>
                     <select
                         {...register("warranty", {
                             validate: (value) => value !== "default" || "Please select a warranty"
@@ -236,7 +236,7 @@ const UpdateProductPage = () => {
 
                 {/* Colors */}
                 <div>
-                    <label className="label">Colors (Comma separated)</label>
+                    <label className="label text-gray-900">Colors (Comma separated)</label>
                     <input
                     defaultValue={colors}
                         type="text"
@@ -249,7 +249,7 @@ const UpdateProductPage = () => {
 
                 {/* Features */}
                 <div>
-                    <label className="label">Features (Comma separated)</label>
+                    <label className="label text-gray-900">Features (Comma separated)</label>
                     <input
                         defaultValue={features}
                         type="text"
@@ -262,7 +262,7 @@ const UpdateProductPage = () => {
 
                 {/* Specification */}
                 <div>
-                    <label className="label">Specification (Comma separated)</label>
+                    <label className="label text-gray-900">Specification (Comma separated)</label>
                     <input
                     defaultValue={specification}
                         type="text"
@@ -275,7 +275,7 @@ const UpdateProductPage = () => {
 
                 {/* Image 1 */}
                 <div>
-                    <label className="label">Image 1</label>
+                    <label className="label text-gray-900">Image 1</label>
                     <input
                         type="file"
                         {...register("image1", { required: "Image 1 is required" })}
@@ -287,7 +287,7 @@ const UpdateProductPage = () => {
 
                 {/* Image 2 */}
                 <div>
-                    <label className="label">Image 2</label>
+                    <label className="label text-gray-900">Image 2</label>
                     <input
                         type="file"
                         {...register("image2", { required: "Image 2 is required" })}
@@ -299,7 +299,7 @@ const UpdateProductPage = () => {
 
                 {/* Image 3 */}
                 <div>
-                    <label className="label">Image 3</label>
+                    <label className="label text-gray-900">Image 3</label>
                     <input
                         type="file"
                         {...register("image3", { required: "Image 3 is required" })}
@@ -311,7 +311,7 @@ const UpdateProductPage = () => {
 
                 {/* Description */}
                 <div className="md:col-span-2">
-                    <label className="label">Description</label>
+                    <label className="label text-gray-900">Description</label>
                     <textarea
                     defaultValue={description}
                         {...register("description", { required: "Description is required" })}

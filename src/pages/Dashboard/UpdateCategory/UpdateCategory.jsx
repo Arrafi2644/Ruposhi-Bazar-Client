@@ -73,7 +73,7 @@ const UpdateCategory = () => {
 
                 {/* Product Name */}
                 <div>
-                    <label className="label">Category Name</label>
+                    <label className="label text-gray-900">Category Name</label>
                     <input
                         type="text"
                         defaultValue={name}
@@ -86,7 +86,7 @@ const UpdateCategory = () => {
 
                 {/* Image 1 */}
                 <div>
-                    <label className="label">Image 1</label>
+                    <label className="label text-gray-900">Image 1</label>
                     <input
                         type="file"
                         {...register("image1", { required: "Image 1 is required" })}

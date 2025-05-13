@@ -11,7 +11,6 @@ const ProductsDetails = () => {
     const [productImage, setProductImage] = useState(0)
     const [quantityCount, setQuantityCount] = useState(1);
  
-
     const handleDecrease = () => {
         if (quantityCount > 1) {
             setQuantityCount(prev => prev - 1);
@@ -32,11 +31,11 @@ const ProductsDetails = () => {
             <div className='flex items-center flex-wrap gap-1 mb-4'>
                 <Link to="/">Home </Link>
                 <span><IoIosArrowForward></IoIosArrowForward> </span>
-                <Link>{product?.category}</Link>
+                <Link to={"/all-products"} state={product?.category}>{product?.category}</Link>
                 <span><IoIosArrowForward></IoIosArrowForward> </span>
-                <Link >{product?.productName}</Link>
+                <Link to={"/all-products"} state={product?.productName}>{product?.productName}</Link>
                 <span><IoIosArrowForward></IoIosArrowForward> </span>
-                <Link >{product?.model}</Link>
+                <span >{product?.model}</span>
 
             </div>
             <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
@@ -63,8 +62,9 @@ const ProductsDetails = () => {
                         </div>
                         <span>(0)</span>
                     </div>
+
                     <h3>Brand: {product?.brand}</h3>
-                    <h3>Price: {product?.price} Tk</h3>
+                    <h3>Price: <del>{product?.price}</del> {parseInt(product?.price - (product?.price * product?.discount) / 100)} Tk</h3>
                     <div className='flex justify-between w-full gap-4'>
                         <div className='flex items-center gap-2 justify-between'>
                             <span className='font-medium'>Qty:</span>
@@ -84,7 +84,7 @@ const ProductsDetails = () => {
                                 </button>
                             </div>
                         </div>
-                        <button className="btn btn-outline border-gray-300"> <span><IoCartOutline size={18} /></span> Add To Cart</button>
+                        {/* <button className="btn btn-outline border-gray-300"> <span><IoCartOutline size={18} /></span> Add To Cart</button> */}
                         {/* <button className="btn btn-outline border-gray-300"><BiHeart size={22} /></button> */}
                     </div>
                     <Link to='/order-page' state={productInfo}>

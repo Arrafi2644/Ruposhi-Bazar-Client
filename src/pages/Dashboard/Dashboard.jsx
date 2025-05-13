@@ -30,7 +30,11 @@ const Dashboard = () => {
                 <h3 className='text-xl font-semibold text-center mb-4'>{user?.displayName}</h3>
                 <ul tabIndex={0} className="dropdown-content menu w-full p-0 gap-1">
                     {
-                        isAdmin ? adminRoutes : userRoutes
+
+                        isLoading ?
+                            <div><span className="loading loading-bars loading-lg absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></span></div>
+                            :
+                            isAdmin ? adminRoutes : userRoutes
                     }
 
                 </ul>

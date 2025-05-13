@@ -59,9 +59,11 @@ const MyOrders = () => {
 
             <div className='grid grid-cols-1 xl:grid-cols-2 gap-2'>
                 {
+                   isLoading ? 
+              <div><span className="loading loading-bars loading-lg absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></span></div>
+              :
+
                     orders.length > 0 ? (
-
-
                         orders.slice().reverse().map(order => (<Link className='' key={order._id}>
                             <div className='border border-gray-300 p-2 flex md:flex-row gap-2 font-medium'>
                                 <img className='h-20 w-20 object-center object-cover' src={order?.product?.images[0]} alt="" />
@@ -76,14 +78,14 @@ const MyOrders = () => {
 
                                         <button
                                             className={`btn btn-xs cursor-default rounded-md border-none ${order?.status === "New"
-                                                    ? "bg-green-500 text-white"
-                                                    : order?.status === "Processing"
-                                                        ? "bg-yellow-900 text-white"
-                                                        : order?.status === "Delivered"
-                                                            ? "bg-blue-500 text-white"
-                                                            : order?.status === "Canceled"
-                                                                ? "bg-red-700 text-white"
-                                                                : "bg-gray-500 text-white"
+                                                ? "bg-green-500 text-white"
+                                                : order?.status === "Processing"
+                                                    ? "bg-yellow-900 text-white"
+                                                    : order?.status === "Delivered"
+                                                        ? "bg-blue-500 text-white"
+                                                        : order?.status === "Canceled"
+                                                            ? "bg-red-700 text-white"
+                                                            : "bg-gray-500 text-white"
                                                 }`}
                                         >
                                             {order?.status}

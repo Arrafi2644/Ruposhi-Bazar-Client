@@ -48,7 +48,11 @@ const ManageProducts = () => {
         <div>
             <h2 className='mb-4 text-xl text-center font-semibold'>Manage Products</h2>
 
-            <div className='mt-6'>
+        {
+            isLoading ? 
+              <div><span className="loading loading-bars loading-lg absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></span></div>
+            : 
+             <div className='mt-6'>
                 <div className="overflow-x-auto">
                     <table className="table font-medium">
                         {/* head */}
@@ -73,23 +77,6 @@ const ManageProducts = () => {
                                     <td>{product?.price || "N/A"} Tk</td>
                                     <td>{product?.discount || "N/A"}%</td>
                                     <td>{product?.isStock ? "Stock" : "Out of stock"}</td>
-
-                                    {/* <td>
-                                        <span
-                                            className={`px-2 py-[2px] rounded-md ${order?.status === "New"
-                                                ? "bg-green-500 text-white"
-                                                : order?.status === "Processing"
-                                                    ? "bg-yellow-900 text-white"
-                                                    : order?.status === "Delivered"
-                                                        ? "bg-blue-500 text-white"
-                                                        : order?.status === "Canceled"
-                                                            ? "bg-red-700 text-white"
-                                                            : "bg-gray-500 text-white"
-                                                }`}
-                                        >
-                                            {order?.status}
-                                        </span>
-                                    </td> */}
                                     <td>
                                         <div
                                             className={`dropdown `}
@@ -124,6 +111,7 @@ const ManageProducts = () => {
                     </table>
                 </div>
             </div>
+        }
         </div>
     );
 };

@@ -11,7 +11,11 @@ const ManageCategory = () => {
         <div>
             <h2 className='mb-4 text-xl text-center font-semibold'>Manage Category</h2>
 
-            <div className='mt-6'>
+          {
+            isLoading ? 
+              <div><span className="loading loading-bars loading-lg absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></span></div>
+              : 
+                <div className='mt-6'>
                 <div className="overflow-x-auto">
                     <table className="table font-medium">
                         {/* head */}
@@ -32,23 +36,6 @@ const ManageCategory = () => {
                                         <img className='h-12 w-20 object-center object-cover' src={category?.image} alt="" />
                                     </td>
                                     <td>{category.name || "N/A"} </td>
-        
-                                    {/* <td>
-                                        <span
-                                            className={`px-2 py-[2px] rounded-md ${order?.status === "New"
-                                                ? "bg-green-500 text-white"
-                                                : order?.status === "Processing"
-                                                    ? "bg-yellow-900 text-white"
-                                                    : order?.status === "Delivered"
-                                                        ? "bg-blue-500 text-white"
-                                                        : order?.status === "Canceled"
-                                                            ? "bg-red-700 text-white"
-                                                            : "bg-gray-500 text-white"
-                                                }`}
-                                        >
-                                            {order?.status}
-                                        </span>
-                                    </td> */}
                                     <td>
                                         <div
                                             className={`dropdown `}
@@ -75,6 +62,7 @@ const ManageCategory = () => {
                     </table>
                 </div>
             </div>
+          }
         </div>
     );
 };

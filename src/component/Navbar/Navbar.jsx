@@ -4,13 +4,15 @@ import { CiMenuFries, CiUser } from 'react-icons/ci';
 import { IoCartOutline, IoEllipsisHorizontalCircleOutline, IoMenuSharp } from 'react-icons/io5';
 import { MdCategory, MdOutlineAccountCircle, MdOutlineCategory } from 'react-icons/md';
 import { PiStorefront, PiUserCircle } from 'react-icons/pi';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 import useAdmin from '../../hooks/useAdmin';
 
 const Navbar = () => {
     const { user, logoutUser } = useContext(AuthContext)
+    const [isAdmin, adminPending, isLoading] = useAdmin()
+    const navigate = useNavigate()
     // console.log(user?.displayName);
     // const isAdmin = true;
     const handleLogout = () => {
@@ -18,9 +20,10 @@ const Navbar = () => {
         toast.success("Logout successful!")
     }
 
-    const [isAdmin, adminPending, isLoading] = useAdmin()
-
-    console.log("is Admin  ", user?.email, isAdmin);
+    const handleSearch = (value) => {
+        console.log(value);
+        navigate('/all-products', {state: value})
+    }
 
     return (
         <div className='sticky top-0 z-50 bg-yellow-900 text-white shadow-sm'>
@@ -36,14 +39,14 @@ const Navbar = () => {
                     <div className="navbar-center w-auto lg:w-[500px] hidden md:block">
                         <label className="input min-h-0 h-auto py-1.5 w-full">
                             <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2.5" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></g></svg>
-                            <input type="search" className="grow text-gray-700" placeholder="Search here" />
+                            <input onChange={(e)=>handleSearch(e.target.value)} type="search" className="grow text-gray-700" placeholder="Search here" />
                         </label>
                     </div>
 
                     <div className="navbar-end grow">
                         <ul className='menu menu-horizontal px-1 hidden md:flex items-center'>
                             {/* <li><Link ><AiOutlineHome size={20} />  <span className='hidden lg:block'>Home</span></Link></li> */}
-                            <li><Link ><IoCartOutline size={20} /></Link></li>
+                            {/* <li><Link ><IoCartOutline size={20} /></Link></li> */}
                             <li ><Link >Home</Link></li>
                             <li ><Link to='/all-products'>All Products</Link></li>
                             <li className=''> {
@@ -66,7 +69,7 @@ const Navbar = () => {
 
                         </ul>
                         <ul className='menu menu-horizontal px-1 flex md:hidden items-center '>
-                            <li><Link ><IoCartOutline size={24} />  <span className='hidden lg:block'>Cart</span></Link></li>
+                            {/* <li><Link ><IoCartOutline size={24} />  <span className='hidden lg:block'>Cart</span></Link></li> */}
 
                             <div className="dropdown">
                                 <div tabIndex={0} role="button" className="text-right p-1.5 hover:bg-base-300 cursor-pointer rounded-md"><IoMenuSharp size={20} /></div>
