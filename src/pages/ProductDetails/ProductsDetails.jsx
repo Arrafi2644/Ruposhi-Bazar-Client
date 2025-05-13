@@ -27,7 +27,7 @@ const ProductsDetails = () => {
 
     }
     return (
-        <div className='mt-6 font-medium'>
+        <div className='mt-6 font-medium '>
             <div className='flex items-center flex-wrap gap-1 mb-4'>
                 <Link to="/">Home </Link>
                 <span><IoIosArrowForward></IoIosArrowForward> </span>
@@ -38,7 +38,7 @@ const ProductsDetails = () => {
                 <span >{product?.model}</span>
 
             </div>
-            <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
                 <div className=''>
                     <img className='border border-gray-300 w-full max-h-[400px] h-auto object-cover object-center' src={product?.images[productImage]} alt="" />
                     <div className='flex gap-2 mt-2'>
