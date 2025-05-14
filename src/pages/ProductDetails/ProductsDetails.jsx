@@ -123,7 +123,7 @@ const ProductsDetails = () => {
                         <p>Have question about this product? please call</p>
                         <div className="flex items-center gap-2">
                             <FaPhoneAlt className="text-yellow-900" />
-                            <span className="text-yellow-900 font-medium">+8801990-835127</span>
+                            <span className="text-yellow-900 font-medium">01751166818</span>
                         </div>
                     </div>
                 </div>
