@@ -11,15 +11,6 @@
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Configuration](#configuration)
-- [Demo Credentials](#demo-credentials)
-- [Scripts](#scripts)
-- [Examples](#examples)
-- [Troubleshooting](#troubleshooting)
-- [Contributors](#contributors)
-- [License](#license)
-
 ---
 
 ## 📌 Introduction
@@ -27,6 +18,17 @@
 Ruposhee Bazar is a full-featured e-commerce platform. Users can explore products, place orders, manage their shopping carts and wishlist, and track order status. Admins have complete control over product and category management, order oversight, and user roles. The project is built with modern tooling like React 19, Tailwind CSS, Firebase, and Vite for rapid, maintainable development.
 
 ---
+
+## Default Credentials
+  ### Admin:
+  Email: rafi12@gmail.com
+  Password: rafi12
+
+  ### User:
+  Email: fayez12@gmail.com
+  Password: fayez12
+
+
 
 ## ✨ Features
 
