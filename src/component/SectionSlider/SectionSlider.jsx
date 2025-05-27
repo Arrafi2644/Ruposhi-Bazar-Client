@@ -9,14 +9,14 @@ import './sectionSlider.css';
 const SectionSlider = ({ products }) => {
   const [showSlider, setShowSlider] = useState(false);
 
-  useEffect(() => {
-    // Slight delay to avoid rendering issues (especially on mobile)
-    const timer = setTimeout(() => {
-      setShowSlider(true);
-    }, 100); // 100ms delay
+  // useEffect(() => {
+  //   // Slight delay to avoid rendering issues (especially on mobile)
+  //   const timer = setTimeout(() => {
+  //     setShowSlider(true);
+  //   }, 100); // 100ms delay
 
-    return () => clearTimeout(timer);
-  }, []);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   const settings = {
     dots: false,
@@ -59,7 +59,7 @@ const SectionSlider = ({ products }) => {
 
   return (
     <div className="w-full overflow-hidden">
-      {showSlider && (
+      {products.length > 0 && (
         <Slider {...settings}>
           {products.map((product) => (
             <div key={product?._id} className="h-full">

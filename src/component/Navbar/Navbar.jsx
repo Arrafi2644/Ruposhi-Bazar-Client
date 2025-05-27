@@ -22,7 +22,7 @@ const Navbar = () => {
 
     const handleSearch = (value) => {
         // console.log(value);
-        navigate('/all-products', {state: value})
+        navigate('/all-products', { state: value })
     }
 
     return (
@@ -39,7 +39,7 @@ const Navbar = () => {
                     <div className="navbar-center w-auto lg:w-[500px] hidden md:block">
                         <label className="input min-h-0 h-auto py-1.5 w-full">
                             <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2.5" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></g></svg>
-                            <input onChange={(e)=>handleSearch(e.target.value)} type="search" className="grow text-gray-700" placeholder="Search here" />
+                            <input onChange={(e) => handleSearch(e.target.value)} type="search" className="grow text-gray-700" placeholder="Search here" />
                         </label>
                     </div>
 
@@ -90,11 +90,11 @@ const Navbar = () => {
                                             <div>
                                                 {/* <li className=''><Link to='/dashboard/my-orders' >Dashboard</Link>
                                                 </li> */}
-                                                 <li className=''>
-                                                {
-                                                    isAdmin ? <Link to='/dashboard/manage-orders' >Dashboard</Link> : <Link to='/dashboard/my-orders' >Dashboard</Link>
-                                                }
-                                            </li>
+                                                <li className=''>
+                                                    {
+                                                        isAdmin ? <Link to='/dashboard/manage-orders' >Dashboard</Link> : <Link to='/dashboard/my-orders' >Dashboard</Link>
+                                                    }
+                                                </li>
                                                 <li className=''><button onClick={handleLogout}>Logout</button></li></div> :
                                             <li className=''><Link to='/login' >Login</Link></li>
                                     }
@@ -110,7 +110,7 @@ const Navbar = () => {
                         {/* Search bar  */}
                         <label className="input w-full">
                             <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2.5" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></g></svg>
-                            <input onChange={(e)=>handleSearch(e.target.value)} type="search" className="grow text-gray-700" placeholder="Search here" />
+                            <input onChange={(e) => handleSearch(e.target.value)} type="search" className="grow text-gray-700" placeholder="Search here" />
 
                         </label>
                     </div>

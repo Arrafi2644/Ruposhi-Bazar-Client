@@ -2,6 +2,12 @@
     position: relative;
 }
 
+.slick-track{
+display: flex;
+gap: 4px;
+
+}
+
 .slick-slider .slick-arrow {
     position: absolute;
     z-index: 10;
