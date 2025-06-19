@@ -89,7 +89,7 @@ const ManageOrders = () => {
                                                     className={`px-2 py-[2px] rounded-md ${order?.status === "New"
                                                         ? "bg-green-500 text-white"
                                                         : order?.status === "Processing"
-                                                            ? "bg-yellow-900 text-white"
+                                                            ? "bg-orange-600 text-white"
                                                             : order?.status === "Delivered"
                                                                 ? "bg-blue-500 text-white"
                                                                 : order?.status === "Canceled"

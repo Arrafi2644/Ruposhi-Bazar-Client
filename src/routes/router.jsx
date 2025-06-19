@@ -19,13 +19,15 @@ import ManageCategory from "../pages/Dashboard/ManageCategory/ManageCategory";
 import AddCategory from "../pages/Dashboard/AddCategory/AddCategory";
 import UpdateCategory from "../pages/Dashboard/UpdateCategory/UpdateCategory";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import AllCategories from "../pages/AllCategories/AllCategories";
+import Cart from "../pages/Cart/Cart";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    errorElement: <ErrorPage/>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -37,11 +39,15 @@ const router = createBrowserRouter([
       },
       {
         path: "all-products/:category",
-        element: <AllProducts/>
+        element: <AllProducts />
       },
       {
         path: 'order-page',
         element: <PrivateRoute><OrderPage /></PrivateRoute>
+      },
+      {
+        path: 'cart',
+        element: <PrivateRoute><Cart /></PrivateRoute>
       },
       {
         path: "signup",
@@ -58,6 +64,10 @@ const router = createBrowserRouter([
       {
         path: "order-confirmation",
         element: <OrderConfirmation />
+      },
+      {
+        path: "categories",
+        element: <AllCategories />
       },
       {
         path: "dashboard",
@@ -89,15 +99,15 @@ const router = createBrowserRouter([
           },
           {
             path: "manage-category",
-            element: <PrivateRoute><ManageCategory/></PrivateRoute>
+            element: <PrivateRoute><ManageCategory /></PrivateRoute>
           },
           {
             path: "add-category",
-            element: <PrivateRoute><AddCategory/></PrivateRoute>
+            element: <PrivateRoute><AddCategory /></PrivateRoute>
           },
           {
             path: "update-category",
-            element: <PrivateRoute><UpdateCategory/></PrivateRoute>
+            element: <PrivateRoute><UpdateCategory /></PrivateRoute>
           }
 
         ]

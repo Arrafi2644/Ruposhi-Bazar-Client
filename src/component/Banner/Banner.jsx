@@ -1,20 +1,43 @@
-import React from 'react';
-import bannerImage from "../../assets/images/banner-1.jpg"
-import { Link } from 'react-router-dom';
+import React, { useRef } from 'react';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from 'react-slick';
+import "./banner.css"
+import { Link } from 'react-router';
 
 const Banner = () => {
-    return (
-        <div>
-            <div className='w-full mt-4 relative'>
-                <img className=' max-h-[400px] w-full h-[350px] md:h-full object-cover' src={bannerImage} alt="Banner image" />
-                <div className="text-center space-y-1 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <h2 className='text-2xl font-semibold'>Welcome to RuposheeBazar</h2>
-                    <h3>Your One-Stop Online Shop for Everyday Essentials</h3>
-                   <Link to='/all-products'> <button className="btn bg-yellow-900 text-gray-200">Shop Now</button></Link>
-                </div>
-            </div>
-        </div>
 
+    let sliderRef = useRef(null);
+    // const play = () => {
+    //     sliderRef.slickPlay();
+    // };
+    // const pause = () => {
+    //     sliderRef.slickPause();
+    // };
+
+    let settings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000
+    };
+
+
+    return (
+        <Slider className='mt-6' ref={slider => (sliderRef = slider)}  {...settings}>
+            <Link className='h-auto w-full'>
+                <img className='w-full h-full object-cover' src="https://i.ibb.co.com/gMqH4VQm/image.png" alt="" />
+            </Link>
+            <Link className='h-auto w-full '>
+                <img className='w-full h-full object-cover' src="https://i.ibb.co.com/ycq2CsFW/image.png" alt="" />
+            </Link>
+            <Link className='h-auto w-full '>
+                <img className='w-full h-full object-cover' src="https://i.ibb.co.com/BVZVL460/image.png" alt="" />
+            </Link>
+        </Slider>
     );
 };
 

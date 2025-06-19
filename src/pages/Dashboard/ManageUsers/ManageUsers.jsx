@@ -72,7 +72,7 @@ const ManageUsers = () => {
                                             <td>{user?._id.slice(-5)}</td>
                                             <td>{user?.name || "N/A"} </td>
                                             <td>{user?.email || "N/A"}</td>
-                                            <td><span className={`px-2 py-[2px] rounded-md text-white ${user?.role === "User" ? "bg-green-500" : "bg-yellow-900"}`}>{user?.role || "N/A"}</span></td>
+                                            <td><span className={`px-2 py-[2px] rounded-md text-white ${user?.role === "User" ? "bg-green-500" : "bg-orange-600"}`}>{user?.role || "N/A"}</span></td>
 
                                             <td>
                                                 <div

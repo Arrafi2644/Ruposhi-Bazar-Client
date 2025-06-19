@@ -26,7 +26,7 @@ const Dashboard = () => {
     </>
     return (
         <div className='my-6 min-h-[500px] grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-6 '>
-            <div className='border p-4 rounded-sm border-gray-300 bg-yellow-900 text-white'>
+            <div className='border p-4 rounded-sm border-gray-300 bg-orange-600 text-white'>
                 <h3 className='text-xl font-semibold text-center mb-4'>{user?.displayName}</h3>
                 <ul tabIndex={0} className="dropdown-content menu w-full p-0 gap-1">
                     {

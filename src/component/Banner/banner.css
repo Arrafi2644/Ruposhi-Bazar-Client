@@ -2,16 +2,11 @@
     position: relative;
 }
 
-.slick-track {
-    display: flex;
-    gap: 4px;
-
-}
-
 .slick-slider .slick-arrow {
     position: absolute;
     z-index: 10;
-    background-color: white;
+    /* background-color: white; */
+    background-color: #ffffff4a !important;
     padding: 15px 8px;
     height: 55px;
     width: auto;
@@ -31,8 +26,14 @@
     border-bottom-left-radius: 6px;
 }
 
+
+
 .slick-arrow::before {
-    color: #733e0a;
+    color: #f95c07 !important;
+    background: white;
+    height: 12px ;
+    width: 12px;
+    border-radius: 100%;
     font-size: 20px;
     display: flex;
     align-items: center;

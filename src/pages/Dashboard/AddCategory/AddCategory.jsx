@@ -86,7 +86,7 @@ const AddCategory = () => {
 
                 {/* Submit Button */}
                 <div className="md:col-span-2 text-right">
-                    <button type="submit" className="btn bg-yellow-900 text-gray-50 w-full">
+                    <button type="submit" className="btn bg-orange-600 text-gray-50 w-full">
                         Add Category
                     </button>
                 </div>

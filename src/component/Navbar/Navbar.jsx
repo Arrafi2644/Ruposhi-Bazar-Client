@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AiFillPauseCircle, AiOutlineHome } from 'react-icons/ai';
 import { CiMenuFries, CiUser } from 'react-icons/ci';
 import { IoCartOutline, IoEllipsisHorizontalCircleOutline, IoMenuSharp } from 'react-icons/io5';
@@ -8,11 +8,14 @@ import { Link, useNavigate } from 'react-router';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 import useAdmin from '../../hooks/useAdmin';
+import useCarts from '../../hooks/useCarts';
 
 const Navbar = () => {
     const { user, logoutUser } = useContext(AuthContext)
     const [isAdmin, adminPending, isLoading] = useAdmin()
     const navigate = useNavigate()
+   const [carts, refetch] = useCarts();
+
     // console.log(user?.displayName);
     // const isAdmin = true;
     const handleLogout = () => {
@@ -26,7 +29,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className='sticky top-0 z-50 bg-yellow-900 text-white shadow-sm'>
+        <div className='sticky top-0 z-50 bg-orange-600 text-white shadow-sm'>
 
             <div className='sticky top-0 left-0 z-50'>
                 {/* nav-1  */}
@@ -46,7 +49,7 @@ const Navbar = () => {
                     <div className="navbar-end grow">
                         <ul className='menu menu-horizontal px-1 hidden md:flex items-center'>
                             {/* <li><Link ><AiOutlineHome size={20} />  <span className='hidden lg:block'>Home</span></Link></li> */}
-                            {/* <li><Link ><IoCartOutline size={20} /></Link></li> */}
+                            <li><Link className='relative' to='/cart'> <span className='absolute top-0 right-0 w-4 h-4 flex items-center justify-center rounded-full bg-white text-orange-600 text-xs'>{carts?.length}</span> <IoCartOutline size={20} /></Link></li>
                             <li ><Link >Home</Link></li>
                             <li ><Link to='/all-products'>All Products</Link></li>
                             <li className=''> {
@@ -69,7 +72,7 @@ const Navbar = () => {
 
                         </ul>
                         <ul className='menu menu-horizontal px-1 flex md:hidden items-center '>
-                            {/* <li><Link ><IoCartOutline size={24} />  <span className='hidden lg:block'>Cart</span></Link></li> */}
+                            <li><Link className='relative' to='/cart'> <span className='absolute top-0 right-0 w-4 h-4 flex items-center justify-center rounded-full bg-white text-orange-600 text-xs'>{carts?.length}</span> <IoCartOutline size={20} /></Link></li>
 
                             <div className="dropdown">
                                 <div tabIndex={0} role="button" className="text-right p-1.5 hover:bg-base-300 cursor-pointer rounded-md"><IoMenuSharp size={20} /></div>

@@ -31,7 +31,7 @@ const OrderConfirmation = () => {
     return (
         <div className="font-sans max-w-xl mx-auto p-5 bg-white text-center">
             {/* Header */}
-            <div className="bg-yellow-900 text-white p-5 rounded-t-md">
+            <div className="bg-orange-600 text-white p-5 rounded-t-md">
                 <span className="text-2xl mr-2">✓</span>
                 <h1 className="inline text-2xl font-bold">Thank you</h1>
             </div>

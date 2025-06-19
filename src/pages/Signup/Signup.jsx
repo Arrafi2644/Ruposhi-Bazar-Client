@@ -143,12 +143,12 @@ const Signup = () => {
           />
           {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password.message}</p>}
         </div>
-        <button type="submit" className="w-full cursor-pointer bg-yellow-900 text-white p-2 rounded">Register</button>
+        <button type="submit" className="w-full cursor-pointer bg-orange-600 text-white p-2 rounded">Register</button>
       </form>
       <div className="divider"></div>
       <div><button onClick={handleLoginWithGoogle} className="btn border-gray-300 btn-outline w-full flex items-center"><span><FcGoogle /></span> Login with google</button></div>
       <p className="text-center mt-4 font-medium">
-        Already have an account? <Link state={{ from: from?.from, product }} className="text-yellow-900" to="/login">Login</Link>
+        Already have an account? <Link state={{ from: from?.from, product }} className="text-orange-600" to="/login">Login</Link>
       </p>
     </div>
   );

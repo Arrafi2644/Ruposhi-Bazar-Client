@@ -125,7 +125,7 @@ const OrderPage = () => {
                         />
                         {errors.fullAddress && <p className="text-red-500 text-sm mt-1">{errors.fullAddress.message}</p>}
                     </div>
-                    <button type="submit" className="w-full cursor-pointer bg-yellow-900 text-gray-100 p-2 rounded">Order Submit</button>
+                    <button type="submit" className="w-full cursor-pointer bg-orange-600 text-gray-100 p-2 rounded">Order Submit</button>
                 </form>
             </div>
 
