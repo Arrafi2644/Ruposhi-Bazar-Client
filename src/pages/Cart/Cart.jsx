@@ -1,141 +1,238 @@
 import React, { useState } from 'react';
 import useCarts from '../../hooks/useCarts';
-import { IoMdHeartEmpty } from 'react-icons/io';
-import { GoPlus, GoTrash } from "react-icons/go";
-import { FiMinus } from "react-icons/fi";
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
 import Swal from 'sweetalert2';
-
-
+import { GoPlus, GoTrash } from 'react-icons/go';
+import { FiMinus } from 'react-icons/fi';
 
 const Cart = () => {
+  const axiosSecure = useAxiosSecure();
+  const [carts, refetch, isLoading] = useCarts();
 
-    const axiosSecure = useAxiosSecure();
-    const [carts, refetch, isLoading] = useCarts();
-    console.log(carts);
+  // Store only the selected cart IDs
+  const [selectedCartIds, setSelectedCartIds] = useState([]);
+  // Delivery zone: "inside" or "outside"
+  const [deliveryZone, setDeliveryZone] = useState('inside');
 
-    const handleDecrease = (cart) => {
-        const count = cart.quantity;
-        if (count > 1) {
-            const newQuantity = count - 1;
-            axiosSecure.patch(`/carts/${cart._id}`, { newQuantity })
-                .then(res => {
-                    if (res?.data?.modifiedCount > 0) {
-                        toast.success("Cart quantity updated")
-                        refetch()
-                    }
-                })
-                .catch(err => {
-                    console.log(err);
-                    toast.error("Something went wrong!")
-                })
-        } else {
-            toast.error("Quantity cannot be less than 1")
-        }
-    }
-
-    const handleIncrease = (cart) => {
-        const count = cart?.quantity;
-        const newQuantity = count + 1;
-        axiosSecure.patch(`/carts/${cart._id}`, { newQuantity })
-            .then(res => {
-                if (res?.data?.modifiedCount > 0) {
-                    toast.success("Cart quantity updated")
-                    refetch()
-                }
-            })
-            .catch(err => {
-                console.log(err);
-                toast.error("Something went wrong!")
-            })
-
-    }
-
-    const handleDelete = (_id) => {
-        console.log(_id);
-
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#f95c07",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Swal.fire({
-                //   title: "Deleted!",
-                //   text: "Your file has been deleted.",
-                //   icon: "success"
-                // });
-                axiosSecure.delete(`/carts/${_id}`)
-                    .then(res => {
-                        if (res?.data?.deletedCount > 0) {
-                            toast.success("Remove a item form cart list.")
-                            refetch();
-                        }
-                    })
-                    .catch(err => {
-                        console.log(err);
-                        toast.error("Something went wrong!")
-                    })
-            }
-        });
-    }
-
-    return (
-        <div className='grid grid-cols-1 md:grid-cols-3'>
-            <div className='md:col-span-2'>
-                {
-                    carts.map(cart => <div key={cart._id} className='my-4 flex gap-2'>
-                        <div className='flex gap-2 items-center border border-gray-300 w-full p-2'>
-                            <div>
-                                <input size={24} type="checkbox" name="" id="" />
-                            </div>
-                            <div className=' flex gap-2 w-full'>
-
-                                <img className='w-28 h-28 object-cover' src={cart?.product?.images[0]} alt={cart?.product?.name} />
-                                <div className='flex gap-2 w-full justify-between'>
-                                    <div>
-                                        <h2>{cart?.product?.title}</h2>
-                                        <span>Product: {cart?.product?.productName}</span>,
-                                        <span> Brand: {cart?.product?.brand}</span>
-                                        <p>Price: <del>{cart?.product?.price}tk</del> {cart.product.price - (cart?.product?.price - (cart?.product?.discount * 100))}tk</p>
-                                    </div>
-
-                                    <div className='flex flex-col items-end gap-2 justify-between'>
-
-                                        <div className="inline-flex items-center border border-gray-300 px-4 py-2 rounded-md">
-                                            <button
-                                                onClick={() => handleDecrease(cart)}
-                                                className="text-base px-2 text-gray-500 cursor-pointer hover:text-black"
-                                            >
-                                                <FiMinus />
-                                            </button>
-                                            <span className="px-4 text-base font-medium">{cart?.quantity}</span>
-                                            <button
-                                                onClick={() => handleIncrease(cart)}
-                                                className="text-base px-2 text-gray-500 cursor-pointer hover:text-black"
-                                            >
-                                                <GoPlus size={18} />
-                                            </button>
-                                        </div>
-                                        <div className='flex items-center gap-2'>
-                                            {/* <button className='cursor-pointer btn btn-outline border-gray-300' ><IoMdHeartEmpty size={18} /></button> */}
-                                            <button onClick={() => handleDelete(cart?._id)} className='cursor-pointer btn btn-outline border-gray-300' ><GoTrash size={18} /></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>)
-                }
-            </div>
-            <div></div>
-        </div>
+  // Toggle selection by ID
+  const handleCartToggle = (cartId) => {
+    setSelectedCartIds(prev =>
+      prev.includes(cartId)
+        ? prev.filter(id => id !== cartId)
+        : [...prev, cartId]
     );
-}
+  };
+
+  // Decrease quantity
+  const handleDecrease = (cart) => {
+    if (cart.quantity > 1) {
+      const newQuantity = cart.quantity - 1;
+      axiosSecure.patch(`/carts/${cart._id}`, { newQuantity })
+        .then(res => {
+          if (res.data.modifiedCount > 0) {
+            toast.success('Cart quantity updated');
+            refetch();
+          }
+        })
+        .catch(() => toast.error('Something went wrong!'));
+    } else {
+      toast.error('Quantity cannot be less than 1');
+    }
+  };
+
+  // Increase quantity
+  const handleIncrease = (cart) => {
+    const newQuantity = cart.quantity + 1;
+    axiosSecure.patch(`/carts/${cart._id}`, { newQuantity })
+      .then(res => {
+        if (res.data.modifiedCount > 0) {
+          toast.success('Cart quantity updated');
+          refetch();
+        }
+      })
+      .catch(() => toast.error('Something went wrong!'));
+  };
+
+  // Delete cart item
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#f95c07',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then(result => {
+      if (result.isConfirmed) {
+        axiosSecure.delete(`/carts/${id}`)
+          .then(res => {
+            if (res.data.deletedCount > 0) {
+              toast.success('Item removed from cart');
+              refetch();
+            }
+          })
+          .catch(() => toast.error('Something went wrong!'));
+      }
+    });
+  };
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  // Compute order summary totals
+  const selectedCarts = carts.filter(cart => selectedCartIds.includes(cart._id));
+  const itemsTotal = selectedCarts.reduce((sum, cart) => {
+    const unitPrice = Math.floor(
+      cart.product.price * (1 - cart.product.discount / 100)
+    );
+    return sum + cart.quantity * unitPrice;
+  }, 0);
+
+  // Delivery charge per item by zone
+  const shippingFeePerItem = deliveryZone === 'inside' ? 80 : 150;
+  const shippingFee = shippingFeePerItem * selectedCartIds.length;
+  const totalAmount = itemsTotal + shippingFee;
+
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+      {/* Cart List */}
+      <div className="md:col-span-2">
+        {carts.map(cart => {
+          const unitPrice = Math.floor(
+            cart.product.price * (1 - cart.product.discount / 100)
+          );
+
+          return (
+            <div key={cart._id} className="my-4 flex gap-2 border border-gray-300 p-2 rounded">
+              <input
+                type="checkbox"
+                className="w-4 h-4 accent-orange-600"
+                checked={selectedCartIds.includes(cart._id)}
+                onChange={() => handleCartToggle(cart._id)}
+              />
+
+              <img
+                className="w-28 h-28 object-cover"
+                src={cart.product.images[0]}
+                alt={cart.product.title}
+              />
+
+              <div className="flex flex-col flex-grow justify-between">
+                <div>
+                  <h2 className="font-semibold">{cart.product.title}</h2>
+                  <p>Product: {cart.product.productName}</p>
+                  <p>Brand: {cart.product.brand}</p>
+                  <p>
+                    Price: <del>{cart.product.price} Tk</del> {unitPrice} Tk
+                  </p>
+                </div>
+
+                <div className="flex items-center justify-between mt-4">
+                  <div className="inline-flex items-center border border-gray-300 px-4 py-1 rounded-md">
+                    <button onClick={() => handleDecrease(cart)}>
+                      <FiMinus />
+                    </button>
+                    <span className="px-4">{cart.quantity}</span>
+                    <button onClick={() => handleIncrease(cart)}>
+                      <GoPlus />
+                    </button>
+                  </div>
+
+                  <button onClick={() => handleDelete(cart._id)} className="btn btn-outline border-gray-300 btn-sm">
+                    <GoTrash />
+                  </button>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Order Summary */}
+      <div className="order-summary p-2 mt-4 bg-white border border-gray-300 rounded">
+        <h3 className="font-semibold mb-2">Choose Delivery Area</h3>
+
+        {/* Delivery Zone Selector */}
+        <div className="mb-4">
+          <label className="inline-flex items-center mr-4">
+            <input
+              type="radio"
+              name="deliveryZone"
+              value="inside"
+              checked={deliveryZone === 'inside'}
+              onChange={() => setDeliveryZone('inside')}
+              className="form-radio h-4 w-4 text-orange-600"
+            />
+            <span className="ml-2">Inside Dhaka (Tk {80} per item)</span>
+          </label>
+          <label className="inline-flex items-center">
+            <input
+              type="radio"
+              name="deliveryZone"
+              value="outside"
+              checked={deliveryZone === 'outside'}
+              onChange={() => setDeliveryZone('outside')}
+              className="form-radio h-4 w-4 text-orange-600"
+            />
+            <span className="ml-2">Outside Dhaka (Tk {150} per item)</span>
+          </label>
+        </div>
+
+        <h3 className="font-semibold mb-2">Order Summary</h3>
+
+        <div className="overflow-x-auto">
+          <table className="table w-full">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Qty × Price</th>
+                <th className="text-end">Subtotal</th>
+              </tr>
+            </thead>
+            <tbody>
+              {selectedCarts.map(cart => {
+                const unitPrice = Math.floor(
+                  cart.product.price * (1 - cart.product.discount / 100)
+                );
+                const lineTotal = cart.quantity * unitPrice;
+
+                return (
+                  <tr key={cart._id} className="border-gray-300">
+                    <td className="flex items-center gap-2">
+                      <img
+                        className="h-10 w-10 object-cover"
+                        src={cart.product.images[0]}
+                        alt={cart.product.title}
+                      />
+                      <span className="text-xs md:text-sm">{cart.product.title}</span>
+                    </td>
+                    <td>{cart.quantity} × {unitPrice} Tk</td>
+                    <td className="text-end">{lineTotal} Tk</td>
+                  </tr>
+                );
+              })}
+
+              <tr>
+                <td>Shipping Fee</td>
+                <td>{selectedCartIds.length} × {shippingFeePerItem} Tk</td>
+                <td className="text-end">{shippingFee} Tk</td>
+              </tr>
+
+              <tr>
+                <td>Total</td>
+                <td></td>
+                <td className="text-end">{totalAmount} Tk</td>
+              </tr>
+            </tbody>
+          </table>
+          <button className="btn bg-orange-600 hover:bg-orange-500 text-white text-center w-full">PROCEED TO CHECKOUT</button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Cart;
