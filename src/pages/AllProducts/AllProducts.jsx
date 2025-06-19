@@ -33,7 +33,7 @@ const AllProducts = () => {
                                             to={`/product/${product?._id}`} state={product} // Adjust the route as needed
                                         >
                                             <img
-                                                className="h-48 w-full object-cover"
+                                                className="h-40 md:h-48 w-full object-cover"
                                                 src={product?.images[0]}
                                                 alt={product?.name}
                                             />

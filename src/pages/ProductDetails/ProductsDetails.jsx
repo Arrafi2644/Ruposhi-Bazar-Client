@@ -125,7 +125,7 @@ const ProductsDetails = () => {
                             <button className="btn bg-orange-600 text-gray-50">Order Now</button>
                         </Link>
                         <button onClick={() => handleAddToCart(product)} className="btn btn-outline border-gray-300"> <span><IoCartOutline size={18} /></span> Add To Cart</button>
-                        <button className="btn btn-outline border-gray-300"><BiHeart size={22} /></button>
+                        {/* <button className="btn btn-outline border-gray-300"><BiHeart size={22} /></button> */}
                     </div>
                 </div>
 

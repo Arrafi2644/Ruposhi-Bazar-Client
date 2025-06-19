@@ -71,7 +71,7 @@ const SectionSlider = ({ products }) => {
                 <img
                   src={product?.images?.[0]}
                   alt={product?.title}
-                  className="h-48 w-full object-cover rounded"
+                  className="h-40 md:h-48 w-full object-cover rounded"
                 />
                 <div className="flex flex-col flex-grow mt-2">
                   <h3 className="font-medium text-sm truncate">{product?.title}</h3>
