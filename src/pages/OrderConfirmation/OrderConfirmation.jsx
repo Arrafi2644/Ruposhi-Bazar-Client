@@ -11,22 +11,21 @@ const OrderConfirmation = () => {
         address,
         deliveryArea,
         orderDate,
-        quantity,
         deliveryCharge,
         discountAmount,
         totalPayableAmount,
-        product,
+        products,
         paymentMethod
     } = orderInfo || {};
 
-    const productTitle = product?.title || "Product";
-    const productPrice = product?.price || 0;
-    const subtotal = productPrice * quantity;
-    const discount = discountAmount || 0;
-    const shipping = deliveryCharge || 0;
-    const total = totalPayableAmount || 0;
+const subtotal = Math.floor(
+    products?.reduce((sum, item) => sum + item.product.price * item.quantity, 0)
+);
 
-    // console.log(orderInfo);
+const discount = Math.floor(discountAmount || 0);
+const shipping = Math.floor(deliveryCharge || 0);
+const total = Math.floor(totalPayableAmount || 0);
+
 
     return (
         <div className="font-sans max-w-xl mx-auto p-5 bg-white text-center">
@@ -49,7 +48,6 @@ const OrderConfirmation = () => {
                     <p><strong>Area:</strong> {deliveryArea}</p>
                     <p><strong>Date:</strong> {orderDate}</p>
                     <p><strong>Total:</strong> {total} TK</p>
-                    
                 </div>
                 <p className="mt-2 text-gray-700">Pay cash upon delivery.</p>
 
@@ -58,11 +56,13 @@ const OrderConfirmation = () => {
                     <h3 className="text-lg font-semibold">Order details</h3>
                     <table className="w-full mt-2 border-collapse">
                         <tbody>
-                            <tr className="border-b border-gray-200">
-                                <td className="py-2 font-bold w-1/4">Product</td>
-                                <td className="py-2">{quantity} x {productTitle}</td>
-                                <td className="py-2 text-right">{subtotal} TK</td>
-                            </tr>
+                            {products?.map((item, index) => (
+                                <tr key={index} className="border-b border-gray-200">
+                                    <td className="py-2 font-bold w-1/4">Product</td>
+                                    <td className="py-2">{item.quantity} x {item.product.title}</td>
+                                    <td className="py-2 text-right">{item.product.price * item.quantity} TK</td>
+                                </tr>
+                            ))}
                             <tr className="border-b border-gray-200">
                                 <td className="py-2 font-bold">Subtotal</td>
                                 <td className="py-2"></td>
@@ -92,7 +92,8 @@ const OrderConfirmation = () => {
                     </table>
                 </div>
             </div>
-                <Link className="btn btn-outline mt-4 btn-sm" to={'/'}>Back to Home</Link>
+
+            <Link className="btn btn-outline mt-4 btn-sm" to={"/"}>Back to Home</Link>
         </div>
     );
 };

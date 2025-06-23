@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 import Swal from 'sweetalert2';
 import { GoPlus, GoTrash } from 'react-icons/go';
 import { FiMinus } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const axiosSecure = useAxiosSecure();
@@ -31,8 +32,8 @@ const Cart = () => {
       axiosSecure.patch(`/carts/${cart._id}`, { newQuantity })
         .then(res => {
           if (res.data.modifiedCount > 0) {
-            toast.success('Cart quantity updated');
             refetch();
+            toast.success('Cart quantity updated');
           }
         })
         .catch(() => toast.error('Something went wrong!'));
@@ -47,8 +48,8 @@ const Cart = () => {
     axiosSecure.patch(`/carts/${cart._id}`, { newQuantity })
       .then(res => {
         if (res.data.modifiedCount > 0) {
-          toast.success('Cart quantity updated');
           refetch();
+          toast.success('Cart quantity updated');
         }
       })
       .catch(() => toast.error('Something went wrong!'));
@@ -92,63 +93,74 @@ const Cart = () => {
   }, 0);
 
   // Delivery charge per item by zone
-  const shippingFeePerItem = deliveryZone === 'inside' ? 80 : 150;
+  const shippingFeePerItem = deliveryZone === 'inside' ? 80 : 120;
   const shippingFee = shippingFeePerItem * selectedCartIds.length;
   const totalAmount = itemsTotal + shippingFee;
 
+  console.log("Selected products ", selectedCarts);
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
       {/* Cart List */}
       <div className="md:col-span-2">
-        {carts.map(cart => {
-          const unitPrice = Math.floor(
-            cart.product.price * (1 - cart.product.discount / 100)
-          );
+        {carts.length > 0 ?
+          carts.map(cart => {
+            const unitPrice = Math.floor(
+              cart.product.price * (1 - cart.product.discount / 100)
+            );
 
-          return (
-            <div key={cart._id} className="my-4 flex gap-2 border border-gray-300 p-2 rounded">
-              <input
-                type="checkbox"
-                className="w-4 h-4 accent-orange-600"
-                checked={selectedCartIds.includes(cart._id)}
-                onChange={() => handleCartToggle(cart._id)}
-              />
+            return (
 
-              <img
-                className="w-28 h-28 object-cover"
-                src={cart.product.images[0]}
-                alt={cart.product.title}
-              />
+              <div key={cart._id} className="my-4 flex gap-2 border border-gray-300 p-2 rounded">
+                <input
+                  type="checkbox"
+                  className="w-4 h-4 accent-orange-600"
+                  checked={selectedCartIds.includes(cart._id)}
+                  onChange={() => handleCartToggle(cart._id)}
+                />
 
-              <div className="flex flex-col flex-grow justify-between">
-                <div>
-                  <h2 className="font-semibold">{cart.product.title}</h2>
-                  <p>Product: {cart.product.productName}</p>
-                  <p>Brand: {cart.product.brand}</p>
-                  <p>
-                    Price: <del>{cart.product.price} Tk</del> {unitPrice} Tk
-                  </p>
-                </div>
+                <img
+                  className="w-28 h-28 object-cover"
+                  src={cart.product.images[0]}
+                  alt={cart.product.title}
+                />
 
-                <div className="flex items-center justify-between mt-4">
-                  <div className="inline-flex items-center border border-gray-300 px-4 py-1 rounded-md">
-                    <button onClick={() => handleDecrease(cart)}>
-                      <FiMinus />
-                    </button>
-                    <span className="px-4">{cart.quantity}</span>
-                    <button onClick={() => handleIncrease(cart)}>
-                      <GoPlus />
-                    </button>
+                <div className="flex flex-col flex-grow justify-between">
+                  <div>
+                    <h2 className="font-semibold">{cart.product.title}</h2>
+                    <p>Product: {cart.product.productName}</p>
+                    <p>Brand: {cart.product.brand}</p>
+                    <p>
+                      Price: <del>{cart.product.price} Tk</del> {unitPrice} Tk
+                    </p>
                   </div>
 
-                  <button onClick={() => handleDelete(cart._id)} className="btn btn-outline border-gray-300 btn-sm">
-                    <GoTrash />
-                  </button>
+                  <div className="flex items-center justify-between mt-4">
+                    <div className="inline-flex items-center border border-gray-300 px-4 py-1 rounded-md">
+                      <button onClick={() => handleDecrease(cart)}>
+                        <FiMinus />
+                      </button>
+                      <span className="px-4">{cart.quantity}</span>
+                      <button onClick={() => handleIncrease(cart)}>
+                        <GoPlus />
+                      </button>
+                    </div>
+
+                    <button onClick={() => handleDelete(cart._id)} className="btn btn-outline border-gray-300 btn-sm">
+                      <GoTrash />
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+
+            );
+          })
+
+          :
+          <div className='flex items-center justify-center flex-col gap-2 min-h-[calc(100vh-100px)] '>
+            <h2 className='text-lg font-medium text-center'>You haven’t added anything to your cart yet.</h2>
+            <Link to='/all-products' className='btn btn-sm bg-orange-600 text-white hover:bg-orange-500'>Shop Now</Link>
+          </div>
+        }
       </div>
 
       {/* Order Summary */}
@@ -164,7 +176,7 @@ const Cart = () => {
               value="inside"
               checked={deliveryZone === 'inside'}
               onChange={() => setDeliveryZone('inside')}
-              className="form-radio h-4 w-4 text-orange-600"
+              className="form-radio h-4 w-4  accent-orange-600"
             />
             <span className="ml-2">Inside Dhaka (Tk {80} per item)</span>
           </label>
@@ -175,9 +187,9 @@ const Cart = () => {
               value="outside"
               checked={deliveryZone === 'outside'}
               onChange={() => setDeliveryZone('outside')}
-              className="form-radio h-4 w-4 text-orange-600"
+              className="form-radio h-4 w-4 accent-orange-600"
             />
-            <span className="ml-2">Outside Dhaka (Tk {150} per item)</span>
+            <span className="ml-2">Outside Dhaka (Tk {120} per item)</span>
           </label>
         </div>
 
@@ -228,7 +240,9 @@ const Cart = () => {
               </tr>
             </tbody>
           </table>
-          <button className="btn bg-orange-600 hover:bg-orange-500 text-white text-center w-full">PROCEED TO CHECKOUT</button>
+          <Link to={selectedCarts.length > 0 ? '/order-page' : '#'} state={selectedCarts} aria-disabled={selectedCarts.length < 1}>
+            <button className="btn bg-orange-600 hover:bg-orange-500 text-white text-center w-full">PROCEED TO CHECKOUT</button>
+          </Link>
         </div>
       </div>
     </div>

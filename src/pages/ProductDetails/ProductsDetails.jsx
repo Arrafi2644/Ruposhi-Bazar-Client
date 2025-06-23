@@ -58,8 +58,11 @@ const ProductsDetails = () => {
     const productInfo = {
         product,
         quantity: quantityCount
-
     }
+
+    const orderProducts = [productInfo]
+
+
     return (
         <div className='mt-6 font-medium '>
             <div className='flex items-center flex-wrap gap-1 mb-4'>
@@ -121,7 +124,7 @@ const ProductsDetails = () => {
 
                     </div>
                     <div className='flex gap-2'>
-                        <Link to='/order-page' state={productInfo}>
+                        <Link to='/order-page' state={orderProducts}>
                             <button className="btn bg-orange-600 text-gray-50">Order Now</button>
                         </Link>
                         <button onClick={() => handleAddToCart(product)} className="btn btn-outline border-gray-300"> <span><IoCartOutline size={18} /></span> Add To Cart</button>

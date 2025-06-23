@@ -15,7 +15,7 @@ const AllCategories = () => {
             {/* section content */}
             <div className='grid grid-cols-4 md:grid-cols-6 lg:grid-cols-9'>
                 {
-                    categories.map(category => <Link to={`/${category.name}`} state={category.name} key={category._id} className=' p-2 w-full flex items-center flex-col border hover:shadow-md hover:border border-gray-200 bg-white'>
+                    categories.map(category => <Link to={`/all-products/${category.name}`} state={category.name} key={category._id} className=' p-2 w-full flex items-center flex-col border hover:shadow-md hover:border border-gray-200 bg-white'>
                         <img className='w-full h-14 md:h-20 object-cover' src={category.image} alt={category.name} />
                         <h3 className='text-center text-sm mt-1'>{category.name}</h3>
                     </Link>)
