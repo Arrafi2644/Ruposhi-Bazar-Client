@@ -14,8 +14,8 @@ const AuthProvider = ({ children }) => {
 
     // create user 
     const signUpUser = (email, password) => {
-       setLoading(true);
-       return createUserWithEmailAndPassword(auth, email, password)
+        setLoading(true);
+        return createUserWithEmailAndPassword(auth, email, password)
     }
     const updateUserProfile = (userInfo) => {
         setLoading(true);
@@ -28,8 +28,8 @@ const AuthProvider = ({ children }) => {
     }
 
     const googleLogin = () => {
-          setLoading(true);
-          return signInWithPopup(auth, googleProvider)
+        setLoading(true);
+        return signInWithPopup(auth, googleProvider)
     }
 
     const logoutUser = () => {
@@ -53,14 +53,14 @@ const AuthProvider = ({ children }) => {
             setUser(currentUser)
             if (currentUser) {
                 const userInfo = { email: currentUser.email }
-                axiosPublic.post('/jwt', userInfo)
+                axiosPublic.post('/users/jwt', userInfo)
                     .then(res => {
                         // console.log(res);
                         if (res.data.token) {
                             localStorage.setItem('access-token', res.data.token)
                             setLoading(false)
                         }
-                       
+
                     })
             }
             else {
