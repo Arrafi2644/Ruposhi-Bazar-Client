@@ -4,6 +4,7 @@ import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import { FaUser } from "react-icons/fa";
 const Login = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const {loginUser, googleLogin} = useAuth();
@@ -52,7 +53,7 @@ const Login = () => {
         const userInfo = {
           name: res?.user?.displayName,
           email: res?.user?.email,
-          role: "user"
+          role: "User"
         }
         axiosPublic.post("/users", userInfo)
           .then(res => {
@@ -69,6 +70,22 @@ const Login = () => {
         toast.error("Something went wrong")
       })
   }
+
+  // Admin credentials
+const adminEmail = "rafi12@gmail.com"; // replace with real admin email
+const adminPassword = "rafi12";       // replace with real admin password
+
+const handleAdminLogin = () => {
+  loginUser(adminEmail, adminPassword)
+    .then(res => {
+      toast.success("Admin logged in!");
+      navigate(from ? from?.from : "/", { state: product });
+    })
+    .catch(err => {
+      toast.error("Admin login failed!");
+    });
+};
+
 
   return (
     <div className="max-w-md mx-auto my-6 p-6 font-medium bg-white border border-gray-300 shadow-md rounded">
@@ -106,7 +123,17 @@ const Login = () => {
         <button type="submit" className="w-full bg-orange-600 cursor-pointer text-white p-2 rounded">Login</button>
       </form>
       <div className="divider"></div>
+      
       <div><button onClick={handleLoginWithGoogle} className="btn border-gray-300 btn-outline w-full flex items-center"><span><FcGoogle/></span> Login with google</button></div>
+      <div><button
+  onClick={handleAdminLogin}
+  type="button"
+className="btn border-gray-300 btn-outline w-full flex items-center mt-4"
+>
+  <span><FaUser/></span>
+  Admin Login
+</button>
+</div>
       <p className="text-center mt-4 font-medium">
         Don't have any account? <Link state={{ from: from?.from, product }} className="text-orange-600" to="/signup">Signup</Link>
       </p>
