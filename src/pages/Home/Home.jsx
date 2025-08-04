@@ -5,6 +5,8 @@ import BestSellers from '../../component/BestSellers/BestSellers';
 import NewArrivals from '../../component/NewArrivals/NewArrivals';
 import PrivateRoute from '../../PrivateRoute';
 import useCategories from '../../hooks/useCategories';
+import WhyRuposhee from '../../component/WhyRuposhee/WhyRuposhee';
+import Newsletter from '../../component/NewsLetter/NewsLetter';
 
 const Home = () => {
     const [categories, isLoading, refetch] = useCategories();
@@ -23,6 +25,8 @@ const Home = () => {
             <Categories />
             <BestSellers />
             <NewArrivals/>
+            <WhyRuposhee />
+            <Newsletter />
            </div>
            }
         </div>

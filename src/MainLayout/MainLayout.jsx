@@ -11,7 +11,6 @@ const MainLayout = () => {
             <div className='container min-h-screen mx-auto px-2'>
                 <Outlet />
             </div>
-
             <Footer/>
         </div>
     );

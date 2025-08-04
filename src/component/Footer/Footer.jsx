@@ -3,8 +3,8 @@ import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300 pt-10 pb-6 px-4 md:px-12">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-gray-900 text-gray-300 pt-10 pb-6 px-2 md:px-12">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Logo & description */}
         <div>
           <h2 className="text-xl font-bold text-white mb-3">Ruposhee Bazar</h2>
