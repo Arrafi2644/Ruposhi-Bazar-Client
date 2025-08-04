@@ -51,7 +51,7 @@ const Navbar = () => {
                             {/* <li><Link ><AiOutlineHome size={20} />  <span className='hidden lg:block'>Home</span></Link></li> */}
                             <li><Link className='relative' to='/cart'> <span className='absolute top-0 right-0 w-4 h-4 flex items-center justify-center rounded-full bg-white text-orange-600 text-xs'>{carts?.length}</span> <IoCartOutline size={20} /></Link></li>
                             <li ><Link >Home</Link></li>
-                            <li ><Link to='/all-products'>All Products</Link></li>
+                            <li ><Link to='/all-products'>Products</Link></li>
                             <li className=''> {
                                 user ?
                                     <div className="dropdown">
@@ -78,7 +78,7 @@ const Navbar = () => {
                                 <div tabIndex={0} role="button" className="text-right p-1.5 hover:bg-base-300 cursor-pointer rounded-md"><IoMenuSharp size={20} /></div>
                                 <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-36 -right-1 pr-0 top-7 shadow-sm text-gray-900">
                                     <li className=''><Link to='/' >Home</Link></li>
-                                    <li className=''><Link to='/all-products'>All Products</Link></li>
+                                    <li className=''><Link to='/all-products'>Products</Link></li>
                                     {/* <li className=''> {
                                         user ?
                                             <Link to='/'>{user?.displayNamename}</Link> : <Link to='/login'> Login</Link>

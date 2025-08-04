@@ -11,10 +11,26 @@ const AllProducts = () => {
     const [products, isLoading, refetch] = useProducts({ category })
     //   console.log(location.pathname.split("/")[2]);
     // console.log("current page", currentPage);
+    console.log(location);
 
     return (
         <div className='my-6'>
-            <h2 className='text-lg md:text-xl pb-4 font-semibold '>Total Products ({products?.length})</h2>
+            {/* <h2 className='text-lg md:text-xl pb-4 font-semibold '>Total Products ({products?.length})</h2> */}
+            {/* <h2 className='text-lg md:text-xl pb-4 font-semibold '>Home{location?.pathname}</h2> */}
+            {/* Breadcrumb */}
+<h2 className='text-lg pb-4 font-semibold'>
+  <span className=""><Link to="/">Home /</Link></span>
+  <span className=""><Link to="/all-products"> Products</Link></span>
+  {
+    category && (
+      <>
+        <span className="mx-1">/</span>
+        <span className=" capitalize">{category}</span>
+      </>
+    )
+  }
+</h2>
+
 
             {
                 isLoading ? <div>
