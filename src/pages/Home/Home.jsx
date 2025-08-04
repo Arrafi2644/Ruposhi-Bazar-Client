@@ -9,7 +9,7 @@ import useCategories from '../../hooks/useCategories';
 const Home = () => {
     const [categories, isLoading, refetch] = useCategories();
 
-    console.log(isLoading);
+    // console.log(isLoading);
     return (
         <div>
            {

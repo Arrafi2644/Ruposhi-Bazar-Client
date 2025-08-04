@@ -10,7 +10,7 @@ const AllProducts = () => {
     const [currentPage, setCurrentPage] = useState(1)
     const [products, isLoading, refetch] = useProducts({ category })
     //   console.log(location.pathname.split("/")[2]);
-    console.log("current page", currentPage);
+    // console.log("current page", currentPage);
 
     return (
         <div className='my-6'>

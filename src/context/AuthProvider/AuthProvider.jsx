@@ -47,33 +47,33 @@ const AuthProvider = ({ children }) => {
     //     }
     // }, [])
 
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            // console.log("Current user ", currentUser);
-            setUser(currentUser)
-            if (currentUser) {
-                const userInfo = { email: currentUser.email }
-                axiosPublic.post('/users/jwt', userInfo)
-                    .then(res => {
-                        // console.log(res);
-                        if (res.data.token) {
-                            localStorage.setItem('access-token', res.data.token)
-                            setLoading(false)
-                        }
+ useEffect(() => {
+  const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+    setUser(currentUser);
 
-                    })
-            }
-            else {
-                localStorage.removeItem('access-token')
-                setLoading(false)
-            }
+    if (currentUser) {
+      try {
+        const userInfo = { email: currentUser.email };
+        const res = await axiosPublic.post('/users/jwt', userInfo);
 
-        })
-
-        return () => {
-            return unsubscribe();
+        if (res.data.token) {
+          localStorage.setItem('access-token', res.data.token);
         }
-    }, [])
+      } catch (error) {
+        // console.error('JWT fetch error:', error);
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      // Only remove token if no current user and not just initializing
+      localStorage.removeItem('access-token');
+      setLoading(false);
+    }
+  });
+
+  return () => unsubscribe();
+}, []);
+
 
 
     const authInfo = {

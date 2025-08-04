@@ -25,7 +25,6 @@ const OrderPage = () => {
 
     const deliveryArea = watch("deliveryArea");
 
-    console.log("Products", products);
     // Calculate totals
     useEffect(() => {
         const charge = deliveryArea === "Inside Dhaka" ? 80 : 120;
@@ -76,7 +75,7 @@ const OrderPage = () => {
                             refetch()
                         })
                         .catch(err => {
-                            console.log(err);
+                            // console.log(err);
                         })
                     navigate("/order-confirmation", { state: orderInfo });
                 }

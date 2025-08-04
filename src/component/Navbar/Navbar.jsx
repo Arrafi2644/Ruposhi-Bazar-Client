@@ -55,7 +55,7 @@ const Navbar = () => {
                             <li className=''> {
                                 user ?
                                     <div className="dropdown">
-                                        <div tabIndex={0} className="text-right p-1.5 cursor-pointer rounded-md"><span className=' px-1 rounded-md flex '><PiUserCircle size={20} /> {user?.displayName.split(" ")[0]}</span></div>
+                                        <div tabIndex={0} className="text-right p-1.5 cursor-pointer rounded-md"><span className=' px-1 rounded-md flex '><PiUserCircle size={20} /> {user?.displayName?.split(" ")[0]}</span></div>
                                         <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-36 -right-1 pr-0 top-7 shadow-sm text-gray-900">
 
                                             <li className=''>

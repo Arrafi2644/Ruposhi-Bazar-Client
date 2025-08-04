@@ -97,7 +97,7 @@ const Cart = () => {
   const shippingFee = shippingFeePerItem * selectedCartIds.length;
   const totalAmount = itemsTotal + shippingFee;
 
-  console.log("Selected products ", selectedCarts);
+  // console.log("Selected products ", selectedCarts);
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
       {/* Cart List */}
